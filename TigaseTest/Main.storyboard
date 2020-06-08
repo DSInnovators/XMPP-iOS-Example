@@ -8,25 +8,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="lnL-UN-UMp">
             <objects>
-                <viewController id="khB-u7-YO3" sceneMemberID="viewController">
+                <viewController id="khB-u7-YO3" customClass="FirstViewController" customModule="TigaseTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3f-TI-9zv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4X-wT-kc4">
-                                <rect key="frame" x="182.5" y="442.5" width="49.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-kL-NCS">
+                                <rect key="frame" x="162" y="409" width="90" height="88"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsc-qC-Ych">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Connect">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="connectPressed:" destination="khB-u7-YO3" eventType="touchUpInside" id="JnZ-e2-1Hn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNo-Pa-f95">
+                                        <rect key="frame" x="0.0" y="58" width="90" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Disconnect">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="disconnectPressed:" destination="khB-u7-YO3" eventType="touchUpInside" id="NFj-Zm-0m3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="PO7-9E-PZt"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="c4X-wT-kc4" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="8Ed-tv-RWd"/>
-                            <constraint firstItem="c4X-wT-kc4" firstAttribute="centerY" secondItem="Vug-kf-faP" secondAttribute="centerY" id="Dde-ld-gt7"/>
+                            <constraint firstItem="e8A-kL-NCS" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="Lsl-8I-uU4"/>
+                            <constraint firstItem="e8A-kL-NCS" firstAttribute="centerY" secondItem="Vug-kf-faP" secondAttribute="centerY" id="rQH-uv-S1Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vug-kf-faP"/>
                     </view>
