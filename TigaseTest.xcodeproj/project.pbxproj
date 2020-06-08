@@ -14,6 +14,9 @@
 		812F4F32248E1177001F6E4C /* TigaseTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F4F31248E1177001F6E4C /* TigaseTestTests.swift */; };
 		812F4F3D248E1177001F6E4C /* TigaseTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F4F3C248E1177001F6E4C /* TigaseTestUITests.swift */; };
 		812F4F4B248E14C8001F6E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812F4F4A248E14C8001F6E4C /* Main.storyboard */; };
+		812F4FE0248E2163001F6E4C /* tigase-swift in Resources */ = {isa = PBXBuildFile; fileRef = 812F4FDF248E2162001F6E4C /* tigase-swift */; };
+		812F4FF9248E2209001F6E4C /* TigaseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; };
+		812F4FFA248E2209001F6E4C /* TigaseSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F41C0300B2D409D25A535FB /* Pods_TigaseTest_TigaseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */; };
 		BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +36,35 @@
 			remoteGlobalIDString = 812F4F16248E1175001F6E4C;
 			remoteInfo = TigaseTest;
 		};
+		812F4FF5248E2204001F6E4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE3F33D31CA1CBB9001A5CD6;
+			remoteInfo = TigaseSwift;
+		};
+		812F4FF7248E2204001F6E4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FE3F33DD1CA1CBB9001A5CD6;
+			remoteInfo = TigaseSwiftTests;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		812F4FFB248E220A001F6E4C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				812F4FFA248E2209001F6E4C /* TigaseSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0659EA3784D5210E022FBBA6 /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTest-TigaseTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +83,8 @@
 		812F4F3C248E1177001F6E4C /* TigaseTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigaseTestUITests.swift; sourceTree = "<group>"; };
 		812F4F3E248E1177001F6E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		812F4F4A248E14C8001F6E4C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		812F4FDF248E2162001F6E4C /* tigase-swift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "tigase-swift"; sourceTree = "<group>"; };
+		812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TigaseSwift.xcodeproj; path = "tigase-swift/TigaseSwift.xcodeproj"; sourceTree = "<group>"; };
 		925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.release.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */,
+				812F4FF9248E2209001F6E4C /* TigaseSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +131,6 @@
 				A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */,
 				925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -114,6 +147,8 @@
 		812F4F0E248E1175001F6E4C = {
 			isa = PBXGroup;
 			children = (
+				812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */,
+				812F4FDF248E2162001F6E4C /* tigase-swift */,
 				812F4F19248E1175001F6E4C /* TigaseTest */,
 				812F4F30248E1177001F6E4C /* TigaseTestTests */,
 				812F4F3B248E1177001F6E4C /* TigaseTestUITests */,
@@ -163,6 +198,15 @@
 			path = TigaseTestUITests;
 			sourceTree = "<group>";
 		};
+		812F4FF1248E2204001F6E4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				812F4FF6248E2204001F6E4C /* TigaseSwift.framework */,
+				812F4FF8248E2204001F6E4C /* TigaseSwiftTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,6 +218,7 @@
 				812F4F13248E1175001F6E4C /* Sources */,
 				812F4F14248E1175001F6E4C /* Frameworks */,
 				812F4F15248E1175001F6E4C /* Resources */,
+				812F4FFB248E220A001F6E4C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +301,12 @@
 			mainGroup = 812F4F0E248E1175001F6E4C;
 			productRefGroup = 812F4F18248E1175001F6E4C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 812F4FF1248E2204001F6E4C /* Products */;
+					ProjectRef = 812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				812F4F16248E1175001F6E4C /* TigaseTest */,
@@ -265,6 +316,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		812F4FF6248E2204001F6E4C /* TigaseSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TigaseSwift.framework;
+			remoteRef = 812F4FF5248E2204001F6E4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		812F4FF8248E2204001F6E4C /* TigaseSwiftTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TigaseSwiftTests.xctest;
+			remoteRef = 812F4FF7248E2204001F6E4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		812F4F15248E1175001F6E4C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -273,6 +341,7 @@
 				812F4F4B248E14C8001F6E4C /* Main.storyboard in Resources */,
 				812F4F27248E1177001F6E4C /* LaunchScreen.storyboard in Resources */,
 				812F4F24248E1176001F6E4C /* Assets.xcassets in Resources */,
+				812F4FE0248E2163001F6E4C /* tigase-swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

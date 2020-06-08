@@ -1,0 +1,12 @@
+= TigaseSwift Development Guide
+Tigase Team <team@tigase.net>
+
+Welcome to development guide for Tigase XMPP Library for Swift - TigaseSwift.
+
+:leveloffset: 1
+
+include::text/Starting_up.asciidoc[]
+include::text/Basics.asciidoc[]
+include::text/Supported_features.asciidoc[]
+include::text/List_of_specifications_and_modules.asciidoc[]
+include::text/Examples.asciidoc[]
