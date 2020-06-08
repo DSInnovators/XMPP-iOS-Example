@@ -1,0 +1,6 @@
+framework module Pods_TigaseTestTests {
+  umbrella header "Pods-TigaseTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

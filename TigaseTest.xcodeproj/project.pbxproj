@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EE6FD4A18F31F804BD76958 /* Pods_TigaseTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D210C48584A0ECD29779FBA /* Pods_TigaseTestTests.framework */; };
 		812F4F1B248E1175001F6E4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F4F1A248E1175001F6E4C /* AppDelegate.swift */; };
 		812F4F24248E1176001F6E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 812F4F23248E1176001F6E4C /* Assets.xcassets */; };
 		812F4F27248E1177001F6E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812F4F25248E1177001F6E4C /* LaunchScreen.storyboard */; };
 		812F4F32248E1177001F6E4C /* TigaseTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F4F31248E1177001F6E4C /* TigaseTestTests.swift */; };
 		812F4F3D248E1177001F6E4C /* TigaseTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F4F3C248E1177001F6E4C /* TigaseTestUITests.swift */; };
 		812F4F4B248E14C8001F6E4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 812F4F4A248E14C8001F6E4C /* Main.storyboard */; };
+		9F41C0300B2D409D25A535FB /* Pods_TigaseTest_TigaseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */; };
+		BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0659EA3784D5210E022FBBA6 /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTest-TigaseTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0C5B1FDD96B01D48CAEC7CBF /* Pods-TigaseTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTest.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest.debug.xcconfig"; sourceTree = "<group>"; };
+		5EB4A5579778D5928ACD06BF /* Pods-TigaseTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTest.release.xcconfig"; path = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest.release.xcconfig"; sourceTree = "<group>"; };
+		7D210C48584A0ECD29779FBA /* Pods_TigaseTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		812F4F17248E1175001F6E4C /* TigaseTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigaseTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		812F4F1A248E1175001F6E4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		812F4F23248E1176001F6E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +52,11 @@
 		812F4F3C248E1177001F6E4C /* TigaseTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigaseTestUITests.swift; sourceTree = "<group>"; };
 		812F4F3E248E1177001F6E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		812F4F4A248E14C8001F6E4C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.release.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C8B688ABCCC565745B39912E /* Pods-TigaseTest-TigaseTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTest-TigaseTestUITests.release.xcconfig"; path = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTest_TigaseTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EE6FD4A18F31F804BD76958 /* Pods_TigaseTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,12 +80,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F41C0300B2D409D25A535FB /* Pods_TigaseTest_TigaseTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AC35CCB1DCCC11C20901841 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C5B1FDD96B01D48CAEC7CBF /* Pods-TigaseTest.debug.xcconfig */,
+				5EB4A5579778D5928ACD06BF /* Pods-TigaseTest.release.xcconfig */,
+				0659EA3784D5210E022FBBA6 /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */,
+				C8B688ABCCC565745B39912E /* Pods-TigaseTest-TigaseTestUITests.release.xcconfig */,
+				A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */,
+				925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7718490DF493CF788F4156C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */,
+				DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */,
+				7D210C48584A0ECD29779FBA /* Pods_TigaseTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		812F4F0E248E1175001F6E4C = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +118,8 @@
 				812F4F30248E1177001F6E4C /* TigaseTestTests */,
 				812F4F3B248E1177001F6E4C /* TigaseTestUITests */,
 				812F4F18248E1175001F6E4C /* Products */,
+				2AC35CCB1DCCC11C20901841 /* Pods */,
+				7718490DF493CF788F4156C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +170,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 812F4F41248E1177001F6E4C /* Build configuration list for PBXNativeTarget "TigaseTest" */;
 			buildPhases = (
+				CDCACEEA4FF551B9E4A0A202 /* [CP] Check Pods Manifest.lock */,
 				812F4F13248E1175001F6E4C /* Sources */,
 				812F4F14248E1175001F6E4C /* Frameworks */,
 				812F4F15248E1175001F6E4C /* Resources */,
@@ -146,6 +188,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 812F4F44248E1177001F6E4C /* Build configuration list for PBXNativeTarget "TigaseTestTests" */;
 			buildPhases = (
+				97EB24EF6FFD5D142292E185 /* [CP] Check Pods Manifest.lock */,
 				812F4F29248E1177001F6E4C /* Sources */,
 				812F4F2A248E1177001F6E4C /* Frameworks */,
 				812F4F2B248E1177001F6E4C /* Resources */,
@@ -164,6 +207,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 812F4F47248E1177001F6E4C /* Build configuration list for PBXNativeTarget "TigaseTestUITests" */;
 			buildPhases = (
+				475CEFC7F3B35BE6F8F9A61D /* [CP] Check Pods Manifest.lock */,
 				812F4F34248E1177001F6E4C /* Sources */,
 				812F4F35248E1177001F6E4C /* Frameworks */,
 				812F4F36248E1177001F6E4C /* Resources */,
@@ -247,6 +291,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		475CEFC7F3B35BE6F8F9A61D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TigaseTest-TigaseTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97EB24EF6FFD5D142292E185 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TigaseTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CDCACEEA4FF551B9E4A0A202 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TigaseTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		812F4F13248E1175001F6E4C /* Sources */ = {
@@ -416,6 +529,7 @@
 		};
 		812F4F42248E1177001F6E4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C5B1FDD96B01D48CAEC7CBF /* Pods-TigaseTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -433,6 +547,7 @@
 		};
 		812F4F43248E1177001F6E4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EB4A5579778D5928ACD06BF /* Pods-TigaseTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +565,7 @@
 		};
 		812F4F45248E1177001F6E4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -471,6 +587,7 @@
 		};
 		812F4F46248E1177001F6E4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -492,6 +609,7 @@
 		};
 		812F4F48248E1177001F6E4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0659EA3784D5210E022FBBA6 /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -511,6 +629,7 @@
 		};
 		812F4F49248E1177001F6E4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8B688ABCCC565745B39912E /* Pods-TigaseTest-TigaseTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
