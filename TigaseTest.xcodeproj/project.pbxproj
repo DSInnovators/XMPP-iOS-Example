@@ -17,6 +17,7 @@
 		812F4FE0248E2163001F6E4C /* tigase-swift in Resources */ = {isa = PBXBuildFile; fileRef = 812F4FDF248E2162001F6E4C /* tigase-swift */; };
 		812F4FF9248E2209001F6E4C /* TigaseSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; };
 		812F4FFA248E2209001F6E4C /* TigaseSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		812F501A248E236E001F6E4C /* XMPPClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5019248E236E001F6E4C /* XMPPClientService.swift */; };
 		9F41C0300B2D409D25A535FB /* Pods_TigaseTest_TigaseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */; };
 		BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,7 @@
 		812F4F4A248E14C8001F6E4C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		812F4FDF248E2162001F6E4C /* tigase-swift */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "tigase-swift"; sourceTree = "<group>"; };
 		812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TigaseSwift.xcodeproj; path = "tigase-swift/TigaseSwift.xcodeproj"; sourceTree = "<group>"; };
+		812F5019248E236E001F6E4C /* XMPPClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMPPClientService.swift; sourceTree = "<group>"; };
 		925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.release.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F35A4004C4430E2E939919 /* Pods-TigaseTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.debug.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		812F4F19248E1175001F6E4C /* TigaseTest */ = {
 			isa = PBXGroup;
 			children = (
+				812F5016248E2359001F6E4C /* Services */,
 				812F4F1A248E1175001F6E4C /* AppDelegate.swift */,
 				812F4F23248E1176001F6E4C /* Assets.xcassets */,
 				812F4F25248E1177001F6E4C /* LaunchScreen.storyboard */,
@@ -205,6 +208,14 @@
 				812F4FF8248E2204001F6E4C /* TigaseSwiftTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		812F5016248E2359001F6E4C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				812F5019248E236E001F6E4C /* XMPPClientService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				812F4F1B248E1175001F6E4C /* AppDelegate.swift in Sources */,
+				812F501A248E236E001F6E4C /* XMPPClientService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
