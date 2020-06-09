@@ -12,6 +12,8 @@ import TigaseSwift
 public class XMPPClientService: EventHandler {
     public static var shared = XMPPClientService()
 
+    private var archivedMessages: [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]!
+
     private var client: XMPPClient!
     private init() {
         self.client = XMPPClient()
@@ -106,7 +108,9 @@ public class XMPPClientService: EventHandler {
         presenceModule.setPresence(show: Presence.Show.online, status: nil, priority: nil);
     }
 
-    func fetchChatArchives(for username: String?) {
+    func fetchChatArchives(completion: @escaping(([MessageArchiveManagementModule.ArchivedMessageReceivedEvent]) -> ())) {
+        self.archivedMessages = [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]()
+
         var dateComponents = DateComponents()
         dateComponents.year = 2020
         dateComponents.month = 6
@@ -122,12 +126,14 @@ public class XMPPClientService: EventHandler {
         //rsm param may be used for pagination. ex - rsm: RSM.Query(from: 0, max: 2)
         let mamModule: MessageArchiveManagementModule = self.client.modulesManager.getModule(MessageArchiveManagementModule.ID)!;
         mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: nil, onSuccess: { (queryId, success, result) in
+            if success {
+                completion(self.archivedMessages)
+            }
         }) { (error, stanza) in
         }
     }
 
     func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
-        print(archivedMessage.message.from, archivedMessage.message.to)
-        print(archivedMessage.message.body, archivedMessage.timestamp)
+        self.archivedMessages.append(archivedMessage)
     }
 }
