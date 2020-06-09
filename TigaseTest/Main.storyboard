@@ -16,11 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-kL-NCS">
-                                <rect key="frame" x="162" y="431" width="90" height="88"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-kL-NCS">
+                                <rect key="frame" x="132" y="403.5" width="150" height="143.5"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Agent ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5K3-fW-kIc">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Agent ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="slb-n3-dd0">
+                                        <rect key="frame" x="0.0" y="29.5" width="150" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsc-qC-Ych">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="73.5" width="150" height="30"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Connect">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -30,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNo-Pa-f95">
-                                        <rect key="frame" x="0.0" y="58" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="113.5" width="150" height="30"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Disconnect">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,11 +52,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="PO7-9E-PZt"/>
+                                    <constraint firstAttribute="width" constant="150" id="PO7-9E-PZt"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9V-HP-iXr">
-                                <rect key="frame" x="162" y="812" width="90" height="30"/>
+                                <rect key="frame" x="132" y="812" width="150" height="30"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,18 +65,31 @@
                                     <segue destination="4K2-UY-fLq" kind="show" id="T5m-1Z-Uev"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk8-e4-1a5">
+                                <rect key="frame" x="20" y="108" width="374" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="q9V-HP-iXr" firstAttribute="width" secondItem="e8A-kL-NCS" secondAttribute="width" id="2Tm-97-sT1"/>
                             <constraint firstItem="e8A-kL-NCS" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="Lsl-8I-uU4"/>
+                            <constraint firstItem="Wk8-e4-1a5" firstAttribute="top" secondItem="Vug-kf-faP" secondAttribute="top" constant="20" id="bqx-l7-p0Z"/>
+                            <constraint firstItem="Wk8-e4-1a5" firstAttribute="leading" secondItem="Vug-kf-faP" secondAttribute="leading" constant="20" id="dQt-OO-FA8"/>
                             <constraint firstItem="Vug-kf-faP" firstAttribute="bottom" secondItem="q9V-HP-iXr" secondAttribute="bottom" constant="20" id="kHK-Ou-OoD"/>
                             <constraint firstItem="e8A-kL-NCS" firstAttribute="centerY" secondItem="Vug-kf-faP" secondAttribute="centerY" id="rQH-uv-S1Q"/>
                             <constraint firstItem="q9V-HP-iXr" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="wn6-m2-FjQ"/>
+                            <constraint firstItem="Vug-kf-faP" firstAttribute="trailing" secondItem="Wk8-e4-1a5" secondAttribute="trailing" constant="20" id="yW5-Ob-bLn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vug-kf-faP"/>
                     </view>
                     <navigationItem key="navigationItem" id="Egf-Be-9qQ"/>
+                    <connections>
+                        <outlet property="agentIdTextField" destination="slb-n3-dd0" id="uvD-7K-kRt"/>
+                        <outlet property="connectionStatusLabel" destination="Wk8-e4-1a5" id="c4X-aD-cLB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pae-z2-ZyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

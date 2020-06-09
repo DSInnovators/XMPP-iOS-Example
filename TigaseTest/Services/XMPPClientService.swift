@@ -28,8 +28,6 @@ public class XMPPClientService: EventHandler {
         print("Notifying event bus that we are interested in ArchivedMessageReceivedEvent" +
             " which is fired after an Archived(Old) message is received");
         client.eventBus.register(handler: self, for: MessageArchiveManagementModule.ArchivedMessageReceivedEvent.TYPE);
-
-        self.setCredentials(userJID: "30958@ssfapp.innovatorslab.net", password: "12345678ssf");
     }
     
     private func registerModules() {
@@ -70,8 +68,10 @@ public class XMPPClientService: EventHandler {
         switch (event) {
         case is SessionEstablishmentModule.SessionEstablishmentSuccessEvent:
             sessionEstablished();
+            NotificationCenter.default.post(name: NSNotification.Name("didConnect"), object: nil)
         case is SocketConnector.DisconnectedEvent:
             print("Client is disconnected.");
+            NotificationCenter.default.post(name: NSNotification.Name("didDisconnect"), object: nil)
         case let archivedMessage as MessageArchiveManagementModule.ArchivedMessageReceivedEvent:
             self.archivedMessageReceived(archivedMessage: archivedMessage)
         default:
@@ -85,6 +85,10 @@ public class XMPPClientService: EventHandler {
         
         //Need to set online presence explicitly...might not be required...need more research
         self.setOnlinePresence()
+    }
+
+    func setAgentId(agentId: String) {
+        self.setCredentials(userJID: agentId + "@ssfapp.innovatorslab.net", password: "12345678ssf");
     }
     
     func connect() {
