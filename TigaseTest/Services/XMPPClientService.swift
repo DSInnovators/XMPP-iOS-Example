@@ -113,7 +113,7 @@ public class XMPPClientService: EventHandler {
 
         var dateComponents = DateComponents()
         dateComponents.year = 2020
-        dateComponents.month = 6
+        dateComponents.month = 1
         dateComponents.day = 1
         dateComponents.timeZone = TimeZone(abbreviation: "BST") // Japan Standard Time
         dateComponents.hour = 0
@@ -125,11 +125,10 @@ public class XMPPClientService: EventHandler {
         //with param may be used when we want to fetch messages with a specific user, nil specifies that we are interested in ALL messages
         //rsm param may be used for pagination. ex - rsm: RSM.Query(from: 0, max: 2)
         let mamModule: MessageArchiveManagementModule = self.client.modulesManager.getModule(MessageArchiveManagementModule.ID)!;
-        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: nil, onSuccess: { (queryId, success, result) in
-            if success {
-                completion(self.archivedMessages)
-            }
+        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: nil, onSuccess: { (queryId, isCompleted, result) in
+            completion(self.archivedMessages)
         }) { (error, stanza) in
+            print(error)
         }
     }
 
