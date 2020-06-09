@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="99.776785714285708"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="wDV-P6-kwg">
             <objects>
-                <viewController id="4K2-UY-fLq" sceneMemberID="viewController">
+                <viewController id="4K2-UY-fLq" customClass="SecondViewController" customModule="TigaseTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZE0-Du-qE4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
