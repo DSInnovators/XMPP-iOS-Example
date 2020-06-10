@@ -13,6 +13,7 @@ public class XMPPClientService: EventHandler {
     public static var shared = XMPPClientService()
 
     private var archivedMessages: [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]!
+    private var receivedMessages: MessageModule.MessageReceivedEvent!
 
     private var pageSize = 2000
 
@@ -32,6 +33,10 @@ public class XMPPClientService: EventHandler {
         print("Notifying event bus that we are interested in ArchivedMessageReceivedEvent" +
             " which is fired after an Archived(Old) message is received");
         client.eventBus.register(handler: self, for: MessageArchiveManagementModule.ArchivedMessageReceivedEvent.TYPE);
+
+        print("Notifying event bus that we are interested in MessageReceivedEvent" +
+            " which is fired after a message is received");
+        client.eventBus.register(handler: self, for: MessageModule.MessageReceivedEvent.TYPE);
     }
     
     private func registerModules() {
@@ -78,6 +83,8 @@ public class XMPPClientService: EventHandler {
             NotificationCenter.default.post(name: NSNotification.Name("didDisconnect"), object: nil)
         case let archivedMessage as MessageArchiveManagementModule.ArchivedMessageReceivedEvent:
             self.archivedMessageReceived(archivedMessage: archivedMessage)
+        case let receivedMessage as MessageModule.MessageReceivedEvent:
+            self.newMessageReceived(receivedMessage: receivedMessages)
         default:
             print("unsupported event", event);
         }
@@ -144,5 +151,10 @@ public class XMPPClientService: EventHandler {
 
     func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
         self.archivedMessages.append(archivedMessage)
+    }
+
+    func newMessageReceived(receivedMessage: MessageModule.MessageReceivedEvent) {
+        self.receivedMessages = receivedMessage
+        NotificationCenter.default.post(name: NSNotification.Name("newMessageReceived"), object: nil, userInfo: ["receivedMessage": receivedMessage])
     }
 }
