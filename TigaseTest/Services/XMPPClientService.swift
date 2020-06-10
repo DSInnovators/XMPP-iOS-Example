@@ -16,6 +16,8 @@ public class XMPPClientService: EventHandler {
 
     private var pageSize = 2000
 
+    private var isCredentialsSet: Bool = false
+
     private var client: XMPPClient!
     private init() {
         self.client = XMPPClient()
@@ -68,6 +70,8 @@ public class XMPPClientService: EventHandler {
         
         //Might be a better approach to specify source.. need to search more
         self.client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: "SSFAPP")
+
+        self.isCredentialsSet = true
         
 //        No need for these...seems to work fine
 //        client.connectionConfiguration.setDomain("ssfapp.innovatorslab.net")
@@ -101,11 +105,20 @@ public class XMPPClientService: EventHandler {
         self.setOnlinePresence()
     }
 
-    func setAgentId(agentId: String) {
+    func setCredentials(agentId: String) {
         self.setCredentials(userJID: agentId + "@ssfapp.innovatorslab.net", password: "12345678ssf");
+    }
+
+    func removeCredentials() {
+        self.isCredentialsSet = false
     }
     
     func connect() {
+        guard self.isCredentialsSet else {
+            return
+        }
+
+        NotificationCenter.default.post(name: NSNotification.Name("didStartToConnect"), object: nil)
         print("Connecting to server..")
         self.client.login()
     }

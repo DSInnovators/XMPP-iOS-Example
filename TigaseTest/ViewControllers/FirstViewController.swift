@@ -23,18 +23,20 @@ class FirstViewController: UIViewController {
             NSNotification.Name("didConnect"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDisconnect), name:
         NSNotification.Name("didDisconnect"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didStartToConnect), name:
+        NSNotification.Name("didStartToConnect"), object: nil)
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
     }
 
     @IBAction func connectPressed(_ sender: Any) {
-        XMPPClientService.shared.setAgentId(agentId: self.agentIdTextField.text ?? "")
-        self.connectionStatusLabel.text = "Connecting..."
+        XMPPClientService.shared.setCredentials(agentId: self.agentIdTextField.text ?? "")
         XMPPClientService.shared.connect()
     }
     
     @IBAction func disconnectPressed(_ sender: Any) {
+        XMPPClientService.shared.removeCredentials()
         XMPPClientService.shared.disconnect()
     }
 
@@ -54,6 +56,12 @@ class FirstViewController: UIViewController {
         let duration = formatter.string(from: self.connectionStartTime, to: connectionEndTime)!
         DispatchQueue.main.async {
             self.connectionStatusLabel.text = "Disconnected. Connection duration " + duration
+        }
+    }
+
+    @objc private func didStartToConnect() {
+        DispatchQueue.main.async {
+            self.connectionStatusLabel.text = "Connecting..."
         }
     }
 
