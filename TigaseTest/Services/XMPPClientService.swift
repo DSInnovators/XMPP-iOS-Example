@@ -14,6 +14,8 @@ public class XMPPClientService: EventHandler {
 
     private var archivedMessages: [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]!
 
+    private var pageSize = 2000
+
     private var client: XMPPClient!
     private init() {
         self.client = XMPPClient()
@@ -108,8 +110,12 @@ public class XMPPClientService: EventHandler {
         presenceModule.setPresence(show: Presence.Show.online, status: nil, priority: nil);
     }
 
-    func fetchChatArchives(completion: @escaping(([MessageArchiveManagementModule.ArchivedMessageReceivedEvent]) -> ())) {
-        self.archivedMessages = [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]()
+    func fetchChatArchives(currentPage: Int = 1, completion: @escaping(([MessageArchiveManagementModule.ArchivedMessageReceivedEvent]) -> ())) {
+
+        //Reset data when fetching first page
+        if currentPage == 1 {
+            self.archivedMessages = [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]()
+        }
 
         var dateComponents = DateComponents()
         dateComponents.year = 2020
@@ -125,8 +131,12 @@ public class XMPPClientService: EventHandler {
         //with param may be used when we want to fetch messages with a specific user, nil specifies that we are interested in ALL messages
         //rsm param may be used for pagination. ex - rsm: RSM.Query(from: 0, max: 2)
         let mamModule: MessageArchiveManagementModule = self.client.modulesManager.getModule(MessageArchiveManagementModule.ID)!;
-        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: nil, onSuccess: { (queryId, isCompleted, result) in
-            completion(self.archivedMessages)
+        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: RSM.Query(from: (currentPage - 1) * self.pageSize, max: self.pageSize), onSuccess: { (queryId, isCompleted, result) in
+            if isCompleted {
+                completion(self.archivedMessages)
+            } else {
+                self.fetchChatArchives(currentPage: currentPage + 1, completion: completion)
+            }
         }) { (error, stanza) in
             print(error)
         }
