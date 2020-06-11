@@ -182,14 +182,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message Received" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFx-tr-qig">
-                                <rect key="frame" x="20" y="108" width="374" height="26.5"/>
+                                <rect key="frame" x="20" y="147.5" width="374" height="26.5"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Bq2-WT-cQF">
-                                <rect key="frame" x="20" y="154.5" width="374" height="73.5"/>
+                                <rect key="frame" x="20" y="194" width="374" height="73.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjU-wg-Bvl">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="20.5"/>
@@ -211,21 +211,32 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Someone is typing..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IH6-Z0-OhD">
+                                <rect key="frame" x="20" y="108" width="374" height="19.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="leading" secondItem="EFx-tr-qig" secondAttribute="leading" id="94C-zI-TeA"/>
+                            <constraint firstItem="EFx-tr-qig" firstAttribute="top" secondItem="IH6-Z0-OhD" secondAttribute="bottom" constant="20" id="9lK-70-LUZ"/>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="trailing" secondItem="EFx-tr-qig" secondAttribute="trailing" id="Elb-0I-Om6"/>
                             <constraint firstItem="EFx-tr-qig" firstAttribute="leading" secondItem="Nrq-Hw-ngc" secondAttribute="leading" constant="20" id="JfW-9U-5Lt"/>
                             <constraint firstItem="Nrq-Hw-ngc" firstAttribute="trailing" secondItem="EFx-tr-qig" secondAttribute="trailing" constant="20" id="Pe7-Tm-XdR"/>
-                            <constraint firstItem="EFx-tr-qig" firstAttribute="top" secondItem="Nrq-Hw-ngc" secondAttribute="top" constant="20" id="RXI-VE-28p"/>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="top" secondItem="EFx-tr-qig" secondAttribute="bottom" constant="20" id="X9Q-rU-tds"/>
+                            <constraint firstItem="IH6-Z0-OhD" firstAttribute="leading" secondItem="Nrq-Hw-ngc" secondAttribute="leading" constant="20" id="bTR-GV-U18"/>
+                            <constraint firstItem="IH6-Z0-OhD" firstAttribute="top" secondItem="Nrq-Hw-ngc" secondAttribute="top" constant="20" id="mG0-8J-iWC"/>
+                            <constraint firstItem="Nrq-Hw-ngc" firstAttribute="trailing" secondItem="IH6-Z0-OhD" secondAttribute="trailing" constant="20" id="x5W-DT-zVf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nrq-Hw-ngc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Messaging" id="wDZ-Ri-jFQ"/>
                     <connections>
                         <outlet property="bodyLabel" destination="quA-fe-kW3" id="6El-kH-19K"/>
+                        <outlet property="chatStatusLabel" destination="IH6-Z0-OhD" id="E4H-ei-gVu"/>
                         <outlet property="newMessageReceivedLabel" destination="EFx-tr-qig" id="KoN-bf-RJa"/>
                         <outlet property="receiverLabel" destination="XgD-vs-NNg" id="aOH-Yc-WUt"/>
                         <outlet property="senderLabel" destination="rjU-wg-Bvl" id="3M9-2c-ry2"/>

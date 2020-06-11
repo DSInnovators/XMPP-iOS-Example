@@ -60,6 +60,10 @@ public class XMPPClientService: EventHandler {
 
         print("Registering module for fetching old messages..");
         _ = client.modulesManager.register(MessageArchiveManagementModule());
+
+//        Cannot register ChatStateNotificationsModule as its init is internal. Also, state notification works withouth explicitly registering this module
+//        print("Registering module for getting chat state notification (user typing notification)..");
+//        _ = client.modulesManager.register(ChatStateNotificationsModule());
     }
     
     private func setCredentials(userJID: String, password: String) {
@@ -165,13 +169,27 @@ public class XMPPClientService: EventHandler {
         }
     }
 
-    func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
+    private func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
         self.archivedMessages.append(archivedMessage)
     }
 
-    func newMessageReceived(receivedMessage: MessageModule.MessageReceivedEvent) {
-        if receivedMessage.message.body != nil {
+    private func newMessageReceived(receivedMessage: MessageModule.MessageReceivedEvent) {
+        switch receivedMessage.message.type {
+        case .chat:
             NotificationCenter.default.post(name: NSNotification.Name("newMessageReceived"), object: nil, userInfo: ["receivedMessage": receivedMessage])
+        case .normal:
+            self.handleChatStateMessage(chatStateMessage: receivedMessage)
+        default:
+            return
+        }
+    }
+
+    private func handleChatStateMessage(chatStateMessage: MessageModule.MessageReceivedEvent) {
+        switch chatStateMessage.message.chatState {
+        case .composing, .paused:
+            NotificationCenter.default.post(name: NSNotification.Name("chatStausChanged"), object: nil, userInfo: ["chatStateMessage": chatStateMessage])
+        default:
+            return
         }
     }
 }
