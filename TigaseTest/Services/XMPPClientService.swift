@@ -154,11 +154,12 @@ public class XMPPClientService: EventHandler {
 
         let userCalendar = Calendar.current
         let startDate = userCalendar.date(from: dateComponents)
+        let endDate = userCalendar.date(byAdding: .hour, value: 1, to: Date())
 
         //with param may be used when we want to fetch messages with a specific user, nil specifies that we are interested in ALL messages
         //rsm param may be used for pagination. ex - rsm: RSM.Query(from: 0, max: 2)
         let mamModule: MessageArchiveManagementModule = self.client.modulesManager.getModule(MessageArchiveManagementModule.ID)!;
-        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: Date(), queryId: "", rsm: RSM.Query(from: (currentPage - 1) * self.pageSize, max: self.pageSize), onSuccess: { (queryId, isCompleted, result) in
+        mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: endDate, queryId: "", rsm: RSM.Query(from: (currentPage - 1) * self.pageSize, max: self.pageSize), onSuccess: { (queryId, isCompleted, result) in
             if isCompleted {
                 completion(self.archivedMessages)
             } else {
@@ -167,6 +168,15 @@ public class XMPPClientService: EventHandler {
         }) { (error, stanza) in
             print(error)
         }
+    }
+
+    func sendMessage(recipientJID: String, message: String) {
+        let messageModule: MessageModule = self.client.modulesManager.getModule(MessageModule.ID)!
+        let recipient = JID(recipientJID)
+        let chat = messageModule.createChat(with: recipient)
+
+        print("Sending message to \(recipientJID)")
+        messageModule.sendMessage(in: chat!, body: message)
     }
 
     private func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {

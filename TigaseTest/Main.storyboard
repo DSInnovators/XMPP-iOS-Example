@@ -218,17 +218,58 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter recipient JabberId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMU-qT-U86">
+                                <rect key="frame" x="20" y="292.5" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipient JID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ex-g1-ycu">
+                                <rect key="frame" x="20" y="319" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3j-D31">
+                                <rect key="frame" x="20" y="363" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCS-WL-3jG">
+                                <rect key="frame" x="20" y="403" width="120" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="E98-Yh-lTA"/>
+                                </constraints>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="connectPressed:" destination="khB-u7-YO3" eventType="touchUpInside" id="tHH-TA-uFf"/>
+                                    <action selector="sendPressed:" destination="LtJ-G0-iJk" eventType="touchUpInside" id="OE4-Iq-KqS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="nsi-3j-D31" firstAttribute="trailing" secondItem="5ex-g1-ycu" secondAttribute="trailing" id="3oO-IT-rhW"/>
+                            <constraint firstItem="lCS-WL-3jG" firstAttribute="top" secondItem="nsi-3j-D31" secondAttribute="bottom" constant="6" id="569-xq-Zkl"/>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="leading" secondItem="EFx-tr-qig" secondAttribute="leading" id="94C-zI-TeA"/>
                             <constraint firstItem="EFx-tr-qig" firstAttribute="top" secondItem="IH6-Z0-OhD" secondAttribute="bottom" constant="20" id="9lK-70-LUZ"/>
+                            <constraint firstItem="nsi-3j-D31" firstAttribute="top" secondItem="5ex-g1-ycu" secondAttribute="bottom" constant="10" id="B1O-hR-atu"/>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="trailing" secondItem="EFx-tr-qig" secondAttribute="trailing" id="Elb-0I-Om6"/>
                             <constraint firstItem="EFx-tr-qig" firstAttribute="leading" secondItem="Nrq-Hw-ngc" secondAttribute="leading" constant="20" id="JfW-9U-5Lt"/>
                             <constraint firstItem="Nrq-Hw-ngc" firstAttribute="trailing" secondItem="EFx-tr-qig" secondAttribute="trailing" constant="20" id="Pe7-Tm-XdR"/>
+                            <constraint firstItem="5ex-g1-ycu" firstAttribute="trailing" secondItem="QMU-qT-U86" secondAttribute="trailing" id="TVy-Up-1dC"/>
+                            <constraint firstItem="lCS-WL-3jG" firstAttribute="leading" secondItem="nsi-3j-D31" secondAttribute="leading" id="VLb-I7-flh"/>
                             <constraint firstItem="Bq2-WT-cQF" firstAttribute="top" secondItem="EFx-tr-qig" secondAttribute="bottom" constant="20" id="X9Q-rU-tds"/>
                             <constraint firstItem="IH6-Z0-OhD" firstAttribute="leading" secondItem="Nrq-Hw-ngc" secondAttribute="leading" constant="20" id="bTR-GV-U18"/>
+                            <constraint firstItem="Nrq-Hw-ngc" firstAttribute="trailing" secondItem="QMU-qT-U86" secondAttribute="trailing" constant="20" id="d6X-sw-KoV"/>
+                            <constraint firstItem="QMU-qT-U86" firstAttribute="top" secondItem="Bq2-WT-cQF" secondAttribute="bottom" constant="25" id="dXp-uZ-ilF"/>
+                            <constraint firstItem="QMU-qT-U86" firstAttribute="leading" secondItem="Nrq-Hw-ngc" secondAttribute="leading" constant="20" id="f5k-8B-NRf"/>
+                            <constraint firstItem="5ex-g1-ycu" firstAttribute="leading" secondItem="QMU-qT-U86" secondAttribute="leading" id="hHM-vx-743"/>
+                            <constraint firstItem="nsi-3j-D31" firstAttribute="leading" secondItem="5ex-g1-ycu" secondAttribute="leading" id="iiH-LH-A1m"/>
                             <constraint firstItem="IH6-Z0-OhD" firstAttribute="top" secondItem="Nrq-Hw-ngc" secondAttribute="top" constant="20" id="mG0-8J-iWC"/>
+                            <constraint firstItem="5ex-g1-ycu" firstAttribute="top" secondItem="QMU-qT-U86" secondAttribute="bottom" constant="6" id="ptP-p3-pCu"/>
                             <constraint firstItem="Nrq-Hw-ngc" firstAttribute="trailing" secondItem="IH6-Z0-OhD" secondAttribute="trailing" constant="20" id="x5W-DT-zVf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Nrq-Hw-ngc"/>
@@ -237,8 +278,10 @@
                     <connections>
                         <outlet property="bodyLabel" destination="quA-fe-kW3" id="6El-kH-19K"/>
                         <outlet property="chatStatusLabel" destination="IH6-Z0-OhD" id="E4H-ei-gVu"/>
+                        <outlet property="messageTextField" destination="nsi-3j-D31" id="kco-WV-kVY"/>
                         <outlet property="newMessageReceivedLabel" destination="EFx-tr-qig" id="KoN-bf-RJa"/>
                         <outlet property="receiverLabel" destination="XgD-vs-NNg" id="aOH-Yc-WUt"/>
+                        <outlet property="recipientJIDTextField" destination="5ex-g1-ycu" id="0oM-0L-CRk"/>
                         <outlet property="senderLabel" destination="rjU-wg-Bvl" id="3M9-2c-ry2"/>
                     </connections>
                 </viewController>
