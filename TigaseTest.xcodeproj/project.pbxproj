@@ -21,6 +21,7 @@
 		812F4FFA248E2209001F6E4C /* TigaseSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		812F501A248E236E001F6E4C /* XMPPClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5019248E236E001F6E4C /* XMPPClientService.swift */; };
 		81B81A4D2490CB2D000D60AF /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B81A4C2490CB2D000D60AF /* MessagingViewController.swift */; };
+		81BB4B662492472B000FE342 /* ChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB4B652492472B000FE342 /* ChatTextField.swift */; };
 		81F2A354248E49E40042FDE8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2A353248E49E40042FDE8 /* FirstViewController.swift */; };
 		9F41C0300B2D409D25A535FB /* Pods_TigaseTest_TigaseTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9FAEB80FE6211E04D1513B /* Pods_TigaseTest_TigaseTestUITests.framework */; };
 		BE194FAD111F22460EBA45B4 /* Pods_TigaseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */; };
@@ -94,6 +95,7 @@
 		812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TigaseSwift.xcodeproj; path = "tigase-swift/TigaseSwift.xcodeproj"; sourceTree = "<group>"; };
 		812F5019248E236E001F6E4C /* XMPPClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMPPClientService.swift; sourceTree = "<group>"; };
 		81B81A4C2490CB2D000D60AF /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
+		81BB4B652492472B000FE342 /* ChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextField.swift; sourceTree = "<group>"; };
 		81F2A353248E49E40042FDE8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		925B1A2389D95ED5FD38D167 /* Pods-TigaseTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TigaseTestTests.release.xcconfig"; path = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E65F6B5F2E655DB01C2A3C8 /* Pods_TigaseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TigaseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 		812F4F19248E1175001F6E4C /* TigaseTest */ = {
 			isa = PBXGroup;
 			children = (
+				81BB4B6224924703000FE342 /* Custom Views */,
 				81123382248F771300D1391C /* Cells */,
 				81F2A34E248E48690042FDE8 /* ViewControllers */,
 				812F5016248E2359001F6E4C /* Services */,
@@ -234,6 +237,14 @@
 				812F5019248E236E001F6E4C /* XMPPClientService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		81BB4B6224924703000FE342 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				81BB4B652492472B000FE342 /* ChatTextField.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		81F2A34E248E48690042FDE8 /* ViewControllers */ = {
@@ -474,6 +485,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81BB4B662492472B000FE342 /* ChatTextField.swift in Sources */,
 				8112337F248F760D00D1391C /* ArchivedMessagesTableViewController.swift in Sources */,
 				81123384248F772600D1391C /* ArchivesMessageTableViewCell.swift in Sources */,
 				81F2A354248E49E40042FDE8 /* FirstViewController.swift in Sources */,

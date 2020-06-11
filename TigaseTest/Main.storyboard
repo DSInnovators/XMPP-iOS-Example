@@ -229,7 +229,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3j-D31">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type message here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3j-D31" customClass="ChatTextField" customModule="TigaseTest" customModuleProvider="target">
                                 <rect key="frame" x="20" y="363" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -278,7 +278,7 @@
                     <connections>
                         <outlet property="bodyLabel" destination="quA-fe-kW3" id="6El-kH-19K"/>
                         <outlet property="chatStatusLabel" destination="IH6-Z0-OhD" id="E4H-ei-gVu"/>
-                        <outlet property="messageTextField" destination="nsi-3j-D31" id="kco-WV-kVY"/>
+                        <outlet property="messageTextField" destination="nsi-3j-D31" id="Q3U-YC-OmY"/>
                         <outlet property="newMessageReceivedLabel" destination="EFx-tr-qig" id="KoN-bf-RJa"/>
                         <outlet property="receiverLabel" destination="XgD-vs-NNg" id="aOH-Yc-WUt"/>
                         <outlet property="recipientJIDTextField" destination="5ex-g1-ycu" id="0oM-0L-CRk"/>

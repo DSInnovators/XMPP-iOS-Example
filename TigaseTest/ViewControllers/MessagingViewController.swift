@@ -18,10 +18,12 @@ class MessagingViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
 
     @IBOutlet weak var recipientJIDTextField: UITextField!
-    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var messageTextField: ChatTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.messageTextField.chatTextFieldDelegate = self
 
         self.newMessageReceivedLabel.alpha = 0
         self.chatStatusLabel.isHidden = true
@@ -70,5 +72,15 @@ class MessagingViewController: UIViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+}
+
+extension MessagingViewController: ChatTextFieldDelegate {
+    func didStartTyping() {
+        XMPPClientService.shared.sendChatStateNotification(recipientJID: self.recipientJIDTextField.text!, chatState: .composing)
+    }
+
+    func didEndTyping() {
+        XMPPClientService.shared.sendChatStateNotification(recipientJID: self.recipientJIDTextField.text!, chatState: .paused)
     }
 }

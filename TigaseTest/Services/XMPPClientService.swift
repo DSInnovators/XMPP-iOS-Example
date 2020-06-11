@@ -176,7 +176,19 @@ public class XMPPClientService: EventHandler {
         let chat = messageModule.createChat(with: recipient)
 
         print("Sending message to \(recipientJID)")
-        messageModule.sendMessage(in: chat!, body: message)
+        _ = messageModule.sendMessage(in: chat!, body: message)
+    }
+
+    func sendChatStateNotification(recipientJID: String, chatState: ChatState) {
+        //Cannot use message module for sending chat state. Need to send manually. Otherwise it will get stored as an archived message
+        let recipient = JID(recipientJID)
+        let chatStateMessage = Message();
+        chatStateMessage.to = recipient;
+        chatStateMessage.type = .normal;
+        chatStateMessage.chatState = chatState;
+
+        print("Sending chat state notification to \(recipientJID)")
+        self.client.context.writer?.write(chatStateMessage)
     }
 
     private func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
@@ -188,6 +200,7 @@ public class XMPPClientService: EventHandler {
         case .chat:
             NotificationCenter.default.post(name: NSNotification.Name("newMessageReceived"), object: nil, userInfo: ["receivedMessage": receivedMessage])
         case .normal:
+            //This case will also be true when retreiving archived messages.
             self.handleChatStateMessage(chatStateMessage: receivedMessage)
         default:
             return
@@ -196,6 +209,7 @@ public class XMPPClientService: EventHandler {
 
     private func handleChatStateMessage(chatStateMessage: MessageModule.MessageReceivedEvent) {
         switch chatStateMessage.message.chatState {
+        //After this handler is called when retrieving archived message the chat state value will be nil
         case .composing, .paused:
             NotificationCenter.default.post(name: NSNotification.Name("chatStausChanged"), object: nil, userInfo: ["chatStateMessage": chatStateMessage])
         default:
