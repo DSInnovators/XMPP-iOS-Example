@@ -9,7 +9,7 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-    @IBOutlet weak var agentIdTextField: UITextField!
+    @IBOutlet weak var jabberIdTextField: UITextField!
     @IBOutlet weak var connectionStatusLabel: UILabel!
 
     private var connectionStartTime: Date!
@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.agentIdTextField.text = "38096"
+        self.jabberIdTextField.text = "38096@ssfapp.innovatorslab.net"
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didConnect), name: 
             NSNotification.Name("didConnect"), object: nil)
@@ -31,7 +31,7 @@ class FirstViewController: UIViewController {
     }
 
     @IBAction func connectPressed(_ sender: Any) {
-        XMPPClientService.shared.setCredentials(agentId: self.agentIdTextField.text ?? "")
+        XMPPClientService.shared.setCredentials(jabberId: self.jabberIdTextField.text ?? "")
         XMPPClientService.shared.connect()
     }
     

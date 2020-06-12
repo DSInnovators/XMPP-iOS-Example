@@ -105,12 +105,12 @@ public class XMPPClientService: EventHandler {
     private func sessionEstablished() {
         print("Now we are connected to server and session is ready..");
         
-        //Need to set online presence explicitly...might not be required...need more research
+        //Need to set online presence explicitly
         self.setOnlinePresence()
     }
 
-    func setCredentials(agentId: String) {
-        self.setCredentials(userJID: agentId + "@ssfapp.innovatorslab.net", password: "12345678ssf");
+    func setCredentials(jabberId: String) {
+        self.setCredentials(userJID: jabberId, password: "12345678ssf");
     }
 
     func removeCredentials() {
