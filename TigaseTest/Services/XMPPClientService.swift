@@ -173,10 +173,12 @@ public class XMPPClientService: EventHandler {
     func sendMessage(recipientJID: String, message: String) {
         let messageModule: MessageModule = self.client.modulesManager.getModule(MessageModule.ID)!
         let recipient = JID(recipientJID)
-        let chat = messageModule.createChat(with: recipient)
-
-        print("Sending message to \(recipientJID)")
-        _ = messageModule.sendMessage(in: chat!, body: message)
+        if let chat = messageModule.createChat(with: recipient) {
+            print("Sending message to \(recipientJID)")
+            let message = chat.createMessage(message)
+            message.id = UIDGenerator.nextUid //Setting Stanza Id
+            messageModule.context.writer?.write(message);
+        }
     }
 
     func sendChatStateNotification(recipientJID: String, chatState: ChatState) {
