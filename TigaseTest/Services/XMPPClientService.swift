@@ -38,6 +38,10 @@ public class XMPPClientService: EventHandler {
         print("Notifying event bus that we are interested in MessageReceivedEvent" +
             " which is fired after a message is received");
         self.client.eventBus.register(handler: self, for: MessageModule.MessageReceivedEvent.TYPE);
+
+        print("Notifying event bus that we are interested in ReceiptEvent" +
+            " which is fired after a message is delivered");
+        self.client.eventBus.register(handler: self, for: MessageDeliveryReceiptsModule.ReceiptEvent.TYPE);
     }
 
     deinit {
@@ -60,6 +64,9 @@ public class XMPPClientService: EventHandler {
 
         print("Registering module for fetching old messages..");
         _ = client.modulesManager.register(MessageArchiveManagementModule());
+
+        print("Registering module for message receipt..");
+        _ = client.modulesManager.register(MessageDeliveryReceiptsModule());
 
 //        Cannot register ChatStateNotificationsModule as its init is internal. Also, state notification works withouth explicitly registering this module
 //        print("Registering module for getting chat state notification (user typing notification)..");
@@ -96,6 +103,8 @@ public class XMPPClientService: EventHandler {
             self.archivedMessageReceived(archivedMessage: archivedMessage)
         case let receivedMessage as MessageModule.MessageReceivedEvent:
             self.newMessageReceived(receivedMessage: receivedMessage)
+        case let receipt as MessageDeliveryReceiptsModule.ReceiptEvent:
+            print(receipt)
         default:
             print("unsupported event", event);
         }
@@ -177,6 +186,7 @@ public class XMPPClientService: EventHandler {
             print("Sending message to \(recipientJID)")
             let message = chat.createMessage(message)
             message.id = UIDGenerator.nextUid //Setting Stanza Id
+            message.messageDelivery = .request
             messageModule.context.writer?.write(message);
         }
     }
