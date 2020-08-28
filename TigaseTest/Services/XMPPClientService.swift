@@ -18,34 +18,32 @@ public class XMPPClientService: EventHandler {
 
     private var isCredentialsSet: Bool = false
 
+    private var myJID: String!
+
     private var client: XMPPClient!
+
+    private var eventsToRegister = [SessionEstablishmentModule.SessionEstablishmentSuccessEvent.TYPE,
+                                    SocketConnector.DisconnectedEvent.TYPE,
+                                    MessageArchiveManagementModule.ArchivedMessageReceivedEvent.TYPE,
+                                    MessageModule.MessageReceivedEvent.TYPE,
+                                    MessageDeliveryReceiptsModule.ReceiptEvent.TYPE,
+                                    MucModule.InvitationReceivedEvent.TYPE,
+                                    MucModule.YouJoinedEvent.TYPE,
+                                    MucModule.MessageReceivedEvent.TYPE,
+                                    MucModule.OccupantComesEvent.TYPE,
+                                    MucModule.OccupantLeavedEvent.TYPE,
+                                    MucModule.OccupantChangedPresenceEvent.TYPE] as [Event]
+
     private init() {
         self.client = XMPPClient()
         
         self.registerModules()
         
-        print("Notifying event bus that we are interested in SessionEstablishmentSuccessEvent" +
-            " which is fired after client is connected");
-        self.client.eventBus.register(handler: self, for: SessionEstablishmentModule.SessionEstablishmentSuccessEvent.TYPE);
-        print("Notifying event bus that we are interested in DisconnectedEvent" +
-            " which is fired after client is connected");
-        self.client.eventBus.register(handler: self, for: SocketConnector.DisconnectedEvent.TYPE);
-
-        print("Notifying event bus that we are interested in ArchivedMessageReceivedEvent" +
-            " which is fired after an Archived(Old) message is received");
-        self.client.eventBus.register(handler: self, for: MessageArchiveManagementModule.ArchivedMessageReceivedEvent.TYPE);
-
-        print("Notifying event bus that we are interested in MessageReceivedEvent" +
-            " which is fired after a message is received");
-        self.client.eventBus.register(handler: self, for: MessageModule.MessageReceivedEvent.TYPE);
-
-        print("Notifying event bus that we are interested in ReceiptEvent" +
-            " which is fired after a message is delivered");
-        self.client.eventBus.register(handler: self, for: MessageDeliveryReceiptsModule.ReceiptEvent.TYPE);
+        self.registerForEvents()
     }
 
     deinit {
-        self.client.eventBus.unregister(handler: self, for: [SessionEstablishmentModule.SessionEstablishmentSuccessEvent.TYPE, SocketConnector.DisconnectedEvent.TYPE, MessageArchiveManagementModule.ArchivedMessageReceivedEvent.TYPE,MessageModule.MessageReceivedEvent.TYPE])
+        self.client.eventBus.unregister(handler: self, for: self.eventsToRegister)
     }
     
     private func registerModules() {
@@ -68,12 +66,21 @@ public class XMPPClientService: EventHandler {
         print("Registering module for message receipt..");
         _ = client.modulesManager.register(MessageDeliveryReceiptsModule());
 
+        print("Registering module for multi-user chat (MUC)..");
+        _ = client.modulesManager.register(MucModule());
+
 //        Cannot register ChatStateNotificationsModule as its init is internal. Also, state notification works withouth explicitly registering this module
 //        print("Registering module for getting chat state notification (user typing notification)..");
 //        _ = client.modulesManager.register(ChatStateNotificationsModule());
     }
+
+    private func registerForEvents() {
+        self.client.eventBus.register(handler: self, for: self.eventsToRegister)
+    }
     
     private func setCredentials(userJID: String, password: String) {
+        self.myJID = userJID
+
         let jid = BareJID(userJID);
         
         self.client.connectionConfiguration.setUserJID(jid);
@@ -105,6 +112,19 @@ public class XMPPClientService: EventHandler {
             self.newMessageReceived(receivedMessage: receivedMessage)
         case let receipt as MessageDeliveryReceiptsModule.ReceiptEvent:
             print(receipt)
+        case let invitation as MucModule.InvitationReceivedEvent:
+            print(invitation)
+//            self.acceptRoomInvitation(roomJid: invitation.invitation!.roomJid)
+        case let mrj as MucModule.YouJoinedEvent:
+            mucRoomJoined(mrj);
+        case let mmr as MucModule.MessageReceivedEvent:
+            mucMessageReceived(mmr);
+        case let mro as MucModule.OccupantComesEvent:
+            print("Occupant", mro.occupant.nickname, "entered room with presence", mro.presence);
+        case let mro as MucModule.OccupantLeavedEvent:
+            print("Occupant", mro.occupant.nickname, "left room");
+        case let mro as MucModule.OccupantChangedPresenceEvent:
+            print("Occupant", mro.occupant.nickname, "changed presence to", mro.presence)
         default:
             print("unsupported event", event);
         }
@@ -203,6 +223,95 @@ public class XMPPClientService: EventHandler {
         self.client.context.writer?.write(chatStateMessage)
     }
 
+    func createNewChatRoom(roomName: String, inviteeJIDs: [String]) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let newRoomId = UIDGenerator.nextUid
+        let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
+
+        _ = mucModule.join(roomName: newRoomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
+
+            self?.setConfigurations(to: room, roomName: roomName)
+            self?.addParticipants(to: room, inviteeJIDs: inviteeJIDs)
+        })
+    }
+
+    private func setConfigurations(to room: Room, roomName: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        mucModule.setRoomSubject(roomJid: BareJID(room.jid), newSubject: roomName)
+
+        let roomConfiguration = JabberDataElement(type: .submit)
+        roomConfiguration.addField(variableName: "muc#roomconfig_roomname", value: roomName)
+        roomConfiguration.addField(variableName: "muc#roomconfig_roomdesc",value: roomName)
+        roomConfiguration.addField(variableName: "muc#roomconfig_persistentroom", value: "1")
+        roomConfiguration.addField(variableName: "muc#roomconfig_membersonly", value: "1")
+        roomConfiguration.addField(variableName: "muc#maxhistoryfetch", value: "0")
+
+        mucModule.setRoomConfiguration(roomJid: room.jid, configuration: roomConfiguration, onSuccess: {}, onError: { (error) in
+            print(error)
+        })
+    }
+
+    private func addParticipants(to room: Room, inviteeJIDs: [String]) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        var roomAffiliations = [MucModule.RoomAffiliation]()
+
+        for invitee in inviteeJIDs {
+            let inviteeNickname = invitee.components(separatedBy: "@")[0]
+            let roomAffiliation = MucModule.RoomAffiliation(jid: JID(invitee), affiliation: .member, nickname: inviteeNickname, role: .participant)
+
+            roomAffiliations.append(roomAffiliation)
+        }
+
+        mucModule.setRoomAffiliations(to: room, changedAffiliations: roomAffiliations) { (error) in
+            print(error)
+        }
+    }
+
+    private func acceptRoomInvitation(roomJid: BareJID) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let roomName = roomJid.stringValue.components(separatedBy: "@")[0]
+        let mucServer = roomJid.stringValue.components(separatedBy: "@")[1]
+
+        let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
+
+        _ = mucModule.join(roomName: roomName, mucServer: mucServer, nickname: myRoomNickname, password: nil)
+    }
+
+    func joinRoom(roomId: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
+        _ = mucModule.join(roomName: roomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil)
+    }
+
+    func sendMessageToLastJoinedRoom(roomId: String, message: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let mucSurver = "conference.ssfapp.innovatorslab.net"
+
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + mucSurver))
+        room?.sendMessage(message)
+    }
+
+    func mucRoomJoined(_ event: MucModule.YouJoinedEvent) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        mucModule.getRoomAffiliations(from: event.room, with: .member) { (affiliations, error) in
+            guard error == nil else {
+                return
+            }
+        }
+    }
+
+    func mucMessageReceived(_ receivedMessage: MucModule.MessageReceivedEvent) {
+        print("rec mes ->" + (receivedMessage.message.body ?? ""))
+        NotificationCenter.default.post(name: NSNotification.Name("newGroupMessageReceived"), object: nil, userInfo: ["receivedMessage": receivedMessage])
+    }
+
     private func archivedMessageReceived(archivedMessage: MessageArchiveManagementModule.ArchivedMessageReceivedEvent) {
         self.archivedMessages.append(archivedMessage)
     }
@@ -226,6 +335,17 @@ public class XMPPClientService: EventHandler {
             NotificationCenter.default.post(name: NSNotification.Name("chatStausChanged"), object: nil, userInfo: ["chatStateMessage": chatStateMessage])
         default:
             return
+        }
+    }
+}
+
+extension JabberDataElement {
+    func addField(variableName: String, value: String) {
+        let element =  Field.createFieldElement(name: variableName, type: nil)
+        element.addChild(Element(name: "value", cdata: value));
+
+        if let field = Field(from: element) {
+            self.addField(field)
         }
     }
 }

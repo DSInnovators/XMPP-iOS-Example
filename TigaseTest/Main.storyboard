@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="64n-wq-Q0W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="64n-wq-Q0W">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -55,16 +55,31 @@
                                     <constraint firstAttribute="width" constant="250" id="PO7-9E-PZt"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9V-HP-iXr">
-                                <rect key="frame" x="82" y="812" width="250" height="30"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Fetch Archived Messages">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bSH-Rk-kGq" kind="show" id="gKy-6W-0mR"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BCK-L5-Vee">
+                                <rect key="frame" x="82" y="791" width="250" height="75"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9V-HP-iXr">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Fetch Archived Messages">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="bSH-Rk-kGq" kind="show" id="gKy-6W-0mR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBt-Nv-AJi">
+                                        <rect key="frame" x="0.0" y="45" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Group Chat">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="poz-FB-oB2" kind="show" id="Wga-0H-fYS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disconnected" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wk8-e4-1a5">
                                 <rect key="frame" x="20" y="108" width="374" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -74,13 +89,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="q9V-HP-iXr" firstAttribute="width" secondItem="e8A-kL-NCS" secondAttribute="width" id="2Tm-97-sT1"/>
                             <constraint firstItem="e8A-kL-NCS" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="Lsl-8I-uU4"/>
+                            <constraint firstItem="BCK-L5-Vee" firstAttribute="leading" secondItem="e8A-kL-NCS" secondAttribute="leading" id="Nji-Z1-G06"/>
                             <constraint firstItem="Wk8-e4-1a5" firstAttribute="top" secondItem="Vug-kf-faP" secondAttribute="top" constant="20" id="bqx-l7-p0Z"/>
                             <constraint firstItem="Wk8-e4-1a5" firstAttribute="leading" secondItem="Vug-kf-faP" secondAttribute="leading" constant="20" id="dQt-OO-FA8"/>
-                            <constraint firstItem="Vug-kf-faP" firstAttribute="bottom" secondItem="q9V-HP-iXr" secondAttribute="bottom" constant="20" id="kHK-Ou-OoD"/>
+                            <constraint firstAttribute="bottom" secondItem="BCK-L5-Vee" secondAttribute="bottom" constant="30" id="hRL-Hf-Ake"/>
                             <constraint firstItem="e8A-kL-NCS" firstAttribute="centerY" secondItem="Vug-kf-faP" secondAttribute="centerY" id="rQH-uv-S1Q"/>
-                            <constraint firstItem="q9V-HP-iXr" firstAttribute="centerX" secondItem="Vug-kf-faP" secondAttribute="centerX" id="wn6-m2-FjQ"/>
+                            <constraint firstItem="BCK-L5-Vee" firstAttribute="trailing" secondItem="e8A-kL-NCS" secondAttribute="trailing" id="st4-Td-EbL"/>
                             <constraint firstItem="Vug-kf-faP" firstAttribute="trailing" secondItem="Wk8-e4-1a5" secondAttribute="trailing" constant="20" id="yW5-Ob-bLn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vug-kf-faP"/>
@@ -94,6 +109,160 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pae-z2-ZyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="99.776785714285708"/>
+        </scene>
+        <!--Group Chat-->
+        <scene sceneID="Z3i-wJ-PYd">
+            <objects>
+                <viewController id="poz-FB-oB2" customClass="GroupChatViewController" customModule="TigaseTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SKY-Ms-Drm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GTX-Jj-vGj">
+                                <rect key="frame" x="82" y="118" width="250" height="196"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cN-LK-ZIy">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHX-bW-w7L">
+                                        <rect key="frame" x="0.0" y="29.5" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Invitee JIDs (comma separated)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEx-5m-KRd">
+                                        <rect key="frame" x="0.0" y="73.5" width="250" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Invitee JIDs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OjZ-t0-xjW">
+                                        <rect key="frame" x="0.0" y="122" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnG-43-om4">
+                                        <rect key="frame" x="0.0" y="166" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Create Room">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createRoomPressed:" destination="poz-FB-oB2" eventType="touchUpInside" id="FqC-vv-ilx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="wcr-nv-hmf"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eba-Un-7Uh">
+                                <rect key="frame" x="82" y="344" width="250" height="187.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join a Room and send Messages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9D2-5Y-MSE">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jp6-bo-awO">
+                                        <rect key="frame" x="0.0" y="29.5" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Tn-iv-VNq">
+                                        <rect key="frame" x="0.0" y="73.5" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Join Room">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinRoomPressed:" destination="poz-FB-oB2" eventType="touchUpInside" id="Zro-4J-TA0"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DG-I6-GRq">
+                                        <rect key="frame" x="0.0" y="113.5" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EU2-Wx-VEN">
+                                        <rect key="frame" x="0.0" y="157.5" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Send Message">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendMessagePressed:" destination="poz-FB-oB2" eventType="touchUpInside" id="njV-de-ef6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="629-27-Bu2"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Message Received" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6E-Dl-hS6">
+                                <rect key="frame" x="10" y="561.5" width="394" height="26.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="moh-Cm-vcg">
+                                <rect key="frame" x="10" y="598" width="394" height="73.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sender" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G66-YU-Nau">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receiver" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrg-pw-Upj">
+                                        <rect key="frame" x="0.0" y="26.5" width="66" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-8I-tEo">
+                                        <rect key="frame" x="0.0" y="53" width="39.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kk5-nM-yfs" firstAttribute="trailing" secondItem="J6E-Dl-hS6" secondAttribute="trailing" constant="10" id="3cw-l5-dEo"/>
+                            <constraint firstItem="Eba-Un-7Uh" firstAttribute="centerX" secondItem="Kk5-nM-yfs" secondAttribute="centerX" id="3yS-hd-GKb"/>
+                            <constraint firstItem="GTX-Jj-vGj" firstAttribute="centerX" secondItem="Kk5-nM-yfs" secondAttribute="centerX" id="Bwl-Cu-0gI"/>
+                            <constraint firstItem="moh-Cm-vcg" firstAttribute="leading" secondItem="J6E-Dl-hS6" secondAttribute="leading" id="INK-rE-mQt"/>
+                            <constraint firstItem="GTX-Jj-vGj" firstAttribute="top" secondItem="Kk5-nM-yfs" secondAttribute="top" constant="30" id="Jhe-3n-GWG"/>
+                            <constraint firstItem="Eba-Un-7Uh" firstAttribute="top" secondItem="GTX-Jj-vGj" secondAttribute="bottom" constant="30" id="a5B-zj-xDl"/>
+                            <constraint firstItem="moh-Cm-vcg" firstAttribute="trailing" secondItem="J6E-Dl-hS6" secondAttribute="trailing" id="bsO-Ch-Sy8"/>
+                            <constraint firstItem="moh-Cm-vcg" firstAttribute="top" secondItem="J6E-Dl-hS6" secondAttribute="bottom" constant="10" id="qIM-TN-NAF"/>
+                            <constraint firstItem="J6E-Dl-hS6" firstAttribute="leading" secondItem="Kk5-nM-yfs" secondAttribute="leading" constant="10" id="qtO-dR-qms"/>
+                            <constraint firstItem="J6E-Dl-hS6" firstAttribute="top" secondItem="Eba-Un-7Uh" secondAttribute="bottom" constant="30" id="sbL-Vy-DWM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kk5-nM-yfs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Group Chat" id="7WI-WS-vOg"/>
+                    <connections>
+                        <outlet property="bodyLabel" destination="J5Q-8I-tEo" id="A9g-0n-MVR"/>
+                        <outlet property="inviteeJIDTextField" destination="OjZ-t0-xjW" id="rDw-3C-IZS"/>
+                        <outlet property="messageTextField" destination="3DG-I6-GRq" id="9kG-3p-hJC"/>
+                        <outlet property="newMessageReceivedLabel" destination="J6E-Dl-hS6" id="dCN-b7-12u"/>
+                        <outlet property="receiverLabel" destination="wrg-pw-Upj" id="hve-kY-XcB"/>
+                        <outlet property="roomIdTextField" destination="Jp6-bo-awO" id="7DI-fH-SOe"/>
+                        <outlet property="roomNameTextField" destination="KHX-bW-w7L" id="GPG-y5-ftI"/>
+                        <outlet property="senderLabel" destination="G66-YU-Nau" id="4nV-hM-WKt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjD-i2-Hx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="827"/>
         </scene>
         <!--Archived Messages-->
         <scene sceneID="0qD-5g-J9N">
