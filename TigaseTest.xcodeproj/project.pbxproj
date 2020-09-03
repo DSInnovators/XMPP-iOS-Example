@@ -21,6 +21,7 @@
 		812F4FFA248E2209001F6E4C /* TigaseSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 812F4FF6248E2204001F6E4C /* TigaseSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		812F501A248E236E001F6E4C /* XMPPClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812F5019248E236E001F6E4C /* XMPPClientService.swift */; };
 		819C367C24F91FC30065E383 /* GroupChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819C367B24F91FC30065E383 /* GroupChatViewController.swift */; };
+		81A5B9C12500B91300F4201F /* GroupChatUserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A5B9C02500B91300F4201F /* GroupChatUserManagementViewController.swift */; };
 		81B81A4D2490CB2D000D60AF /* MessagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B81A4C2490CB2D000D60AF /* MessagingViewController.swift */; };
 		81BB4B662492472B000FE342 /* ChatTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BB4B652492472B000FE342 /* ChatTextField.swift */; };
 		81F2A354248E49E40042FDE8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F2A353248E49E40042FDE8 /* FirstViewController.swift */; };
@@ -96,6 +97,7 @@
 		812F4FF0248E2204001F6E4C /* TigaseSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TigaseSwift.xcodeproj; path = "tigase-swift/TigaseSwift.xcodeproj"; sourceTree = "<group>"; };
 		812F5019248E236E001F6E4C /* XMPPClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMPPClientService.swift; sourceTree = "<group>"; };
 		819C367B24F91FC30065E383 /* GroupChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatViewController.swift; sourceTree = "<group>"; };
+		81A5B9C02500B91300F4201F /* GroupChatUserManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChatUserManagementViewController.swift; sourceTree = "<group>"; };
 		81B81A4C2490CB2D000D60AF /* MessagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagingViewController.swift; sourceTree = "<group>"; };
 		81BB4B652492472B000FE342 /* ChatTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTextField.swift; sourceTree = "<group>"; };
 		81F2A353248E49E40042FDE8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				8112337E248F760D00D1391C /* ArchivedMessagesTableViewController.swift */,
 				81B81A4C2490CB2D000D60AF /* MessagingViewController.swift */,
 				819C367B24F91FC30065E383 /* GroupChatViewController.swift */,
+				81A5B9C02500B91300F4201F /* GroupChatUserManagementViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				8112337F248F760D00D1391C /* ArchivedMessagesTableViewController.swift in Sources */,
 				81123384248F772600D1391C /* ArchivesMessageTableViewCell.swift in Sources */,
 				81F2A354248E49E40042FDE8 /* FirstViewController.swift in Sources */,
+				81A5B9C12500B91300F4201F /* GroupChatUserManagementViewController.swift in Sources */,
 				819C367C24F91FC30065E383 /* GroupChatViewController.swift in Sources */,
 				812F4F1B248E1175001F6E4C /* AppDelegate.swift in Sources */,
 				812F501A248E236E001F6E4C /* XMPPClientService.swift in Sources */,

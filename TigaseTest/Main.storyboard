@@ -248,7 +248,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kk5-nM-yfs"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Group Chat" id="7WI-WS-vOg"/>
+                    <navigationItem key="navigationItem" title="Group Chat" id="7WI-WS-vOg">
+                        <barButtonItem key="rightBarButtonItem" title="Manage Users" id="zJP-Ee-G9E">
+                            <connections>
+                                <segue destination="dDn-A8-S8l" kind="show" id="22J-Lh-HQn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bodyLabel" destination="J5Q-8I-tEo" id="A9g-0n-MVR"/>
                         <outlet property="inviteeJIDTextField" destination="OjZ-t0-xjW" id="rDw-3C-IZS"/>
@@ -475,6 +481,94 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Jc-jH-Dck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="69.565217391304358" y="99.776785714285708"/>
+        </scene>
+        <!--Group Chat-->
+        <scene sceneID="0vk-vU-zXE">
+            <objects>
+                <viewController id="dDn-A8-S8l" customClass="GroupChatUserManagementViewController" customModule="TigaseTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IJb-gt-lTg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Tl-Q6-3rn">
+                                <rect key="frame" x="82" y="118" width="250" height="290.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hks-kt-8T6">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room Id" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-U5-HWu">
+                                        <rect key="frame" x="0.0" y="29.5" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter JIDs of users to be added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrp-JZ-YXV">
+                                        <rect key="frame" x="0.0" y="73.5" width="250" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JIDs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m5L-2N-blM">
+                                        <rect key="frame" x="0.0" y="103" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-vq-uYA">
+                                        <rect key="frame" x="0.0" y="147" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Add To Room">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addToRoomPressed:" destination="dDn-A8-S8l" eventType="touchUpInside" id="1yV-Pq-UVE"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter JIDs of users to be removed" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76v-ju-oXc">
+                                        <rect key="frame" x="0.0" y="187" width="250" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="JIDs" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E6D-dm-MfC">
+                                        <rect key="frame" x="0.0" y="216.5" width="250" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-tP-ddC">
+                                        <rect key="frame" x="0.0" y="260.5" width="250" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Remove from Room">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="removeFromRoomPressed:" destination="dDn-A8-S8l" eventType="touchUpInside" id="HEC-r6-3Fc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Yjj-D6-SkR"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="0Tl-Q6-3rn" firstAttribute="top" secondItem="cQX-W5-yoe" secondAttribute="top" constant="30" id="7d2-HG-IJS"/>
+                            <constraint firstItem="0Tl-Q6-3rn" firstAttribute="centerX" secondItem="cQX-W5-yoe" secondAttribute="centerX" id="V2T-kK-ttO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cQX-W5-yoe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Group Chat" id="qeo-f5-TSh"/>
+                    <connections>
+                        <outlet property="roomIdTextField" destination="BK3-U5-HWu" id="KRs-G7-Jq8"/>
+                        <outlet property="userToAddJIDTextField" destination="m5L-2N-blM" id="C4b-a1-WqX"/>
+                        <outlet property="userToRemoveJIDTextField" destination="E6D-dm-MfC" id="rFf-Gr-g8x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6X2-7s-RZX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="1521"/>
         </scene>
     </scenes>
 </document>

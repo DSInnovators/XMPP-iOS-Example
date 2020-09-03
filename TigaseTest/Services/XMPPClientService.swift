@@ -29,10 +29,7 @@ public class XMPPClientService: EventHandler {
                                     MessageDeliveryReceiptsModule.ReceiptEvent.TYPE,
                                     MucModule.InvitationReceivedEvent.TYPE,
                                     MucModule.YouJoinedEvent.TYPE,
-                                    MucModule.MessageReceivedEvent.TYPE,
-                                    MucModule.OccupantComesEvent.TYPE,
-                                    MucModule.OccupantLeavedEvent.TYPE,
-                                    MucModule.OccupantChangedPresenceEvent.TYPE] as [Event]
+                                    MucModule.MessageReceivedEvent.TYPE] as [Event]
 
     private init() {
         self.client = XMPPClient()
@@ -113,18 +110,11 @@ public class XMPPClientService: EventHandler {
         case let receipt as MessageDeliveryReceiptsModule.ReceiptEvent:
             print(receipt)
         case let invitation as MucModule.InvitationReceivedEvent:
-            print(invitation)
-//            self.acceptRoomInvitation(roomJid: invitation.invitation!.roomJid)
+            self.acceptRoomInvitation(roomJid: invitation.invitation!.roomJid)
         case let mrj as MucModule.YouJoinedEvent:
             mucRoomJoined(mrj);
         case let mmr as MucModule.MessageReceivedEvent:
             mucMessageReceived(mmr);
-        case let mro as MucModule.OccupantComesEvent:
-            print("Occupant", mro.occupant.nickname, "entered room with presence", mro.presence);
-        case let mro as MucModule.OccupantLeavedEvent:
-            print("Occupant", mro.occupant.nickname, "left room");
-        case let mro as MucModule.OccupantChangedPresenceEvent:
-            print("Occupant", mro.occupant.nickname, "changed presence to", mro.presence)
         default:
             print("unsupported event", event);
         }
@@ -232,7 +222,7 @@ public class XMPPClientService: EventHandler {
         _ = mucModule.join(roomName: newRoomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
 
             self?.setConfigurations(to: room, roomName: roomName)
-            self?.addParticipants(to: room, inviteeJIDs: inviteeJIDs)
+            self?.addInitialParticipants(to: room, inviteeJIDs: inviteeJIDs)
         })
     }
 
@@ -246,6 +236,7 @@ public class XMPPClientService: EventHandler {
         roomConfiguration.addField(variableName: "muc#roomconfig_roomdesc",value: roomName)
         roomConfiguration.addField(variableName: "muc#roomconfig_persistentroom", value: "1")
         roomConfiguration.addField(variableName: "muc#roomconfig_membersonly", value: "1")
+        roomConfiguration.addField(variableName: "muc#roomconfig_allowinvites", value: "1")
         roomConfiguration.addField(variableName: "muc#maxhistoryfetch", value: "0")
 
         mucModule.setRoomConfiguration(roomJid: room.jid, configuration: roomConfiguration, onSuccess: {}, onError: { (error) in
@@ -253,7 +244,7 @@ public class XMPPClientService: EventHandler {
         })
     }
 
-    private func addParticipants(to room: Room, inviteeJIDs: [String]) {
+    private func addInitialParticipants(to room: Room, inviteeJIDs: [String]) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
         var roomAffiliations = [MucModule.RoomAffiliation]()
@@ -293,11 +284,55 @@ public class XMPPClientService: EventHandler {
 
         let mucSurver = "conference.ssfapp.innovatorslab.net"
 
-        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + mucSurver))
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
         room?.sendMessage(message)
     }
 
-    func mucRoomJoined(_ event: MucModule.YouJoinedEvent) {
+    func addUserToExistingRoom(roomId: String, userJID: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let mucSurver = "conference.ssfapp.innovatorslab.net"
+        if let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver)) {
+            let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
+
+            if room.presences[myRoomNickname]?.affiliation == MucAffiliation.owner {
+                let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: .member, nickname: nil, role: .participant)
+                mucModule.setRoomAffiliations(to: room, changedAffiliations: [roomAffiliation]) { (error) in
+                    print(error)
+                }
+            } else {
+                mucModule.invite(to: room, invitee: JID(userJID), reason: nil)
+            }
+        }
+    }
+
+    func removeUserFromExistingRoom(roomId: String, userJID: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: .none)
+
+        let mucSurver = "conference.ssfapp.innovatorslab.net"
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
+
+        mucModule.setRoomAffiliations(to: room!, changedAffiliations: [roomAffiliation]) { (error) in
+            print(error)
+        }
+    }
+
+    func updateExistingUserAffiliation(to affiliation: MucAffiliation, roomId: String, userJID: String) {
+        let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
+
+        let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: affiliation)
+
+        let mucSurver = "conference.ssfapp.innovatorslab.net"
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
+
+        mucModule.setRoomAffiliations(to: room!, changedAffiliations: [roomAffiliation]) { (error) in
+            print(error)
+        }
+    }
+
+    private func mucRoomJoined(_ event: MucModule.YouJoinedEvent) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
         mucModule.getRoomAffiliations(from: event.room, with: .member) { (affiliations, error) in
