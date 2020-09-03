@@ -221,6 +221,12 @@ public class XMPPClientService: EventHandler {
 
         _ = mucModule.join(roomName: newRoomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
 
+            /*
+             After creating a room, we need to set its configurations. Until room has been configured, the room
+             stays in a LOCKED state and as a result only the owner can except the room. If in LOCKED state, anyone
+             except the owner tries to enter the room, he will receive a <item-not-found/> error
+             https://xmpp.org/extensions/xep-0045.html#enter-locked
+             */
             self?.setConfigurations(to: room, roomName: roomName)
             self?.addInitialParticipants(to: room, inviteeJIDs: inviteeJIDs)
         })
@@ -229,15 +235,16 @@ public class XMPPClientService: EventHandler {
     private func setConfigurations(to room: Room, roomName: String) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
+        //Setting room subject
         mucModule.setRoomSubject(roomJid: BareJID(room.jid), newSubject: roomName)
 
         let roomConfiguration = JabberDataElement(type: .submit)
-        roomConfiguration.addField(variableName: "muc#roomconfig_roomname", value: roomName)
-        roomConfiguration.addField(variableName: "muc#roomconfig_roomdesc",value: roomName)
-        roomConfiguration.addField(variableName: "muc#roomconfig_persistentroom", value: "1")
-        roomConfiguration.addField(variableName: "muc#roomconfig_membersonly", value: "1")
-        roomConfiguration.addField(variableName: "muc#roomconfig_allowinvites", value: "1")
-        roomConfiguration.addField(variableName: "muc#maxhistoryfetch", value: "0")
+
+        roomConfiguration.addField(variableName: "muc#roomconfig_roomname", value: roomName) //Setting room Name
+        roomConfiguration.addField(variableName: "muc#roomconfig_roomdesc",value: roomName) //Setting room description
+        roomConfiguration.addField(variableName: "muc#roomconfig_persistentroom", value: "1") //Making room Persistent
+        roomConfiguration.addField(variableName: "muc#roomconfig_membersonly", value: "1") //Making room "Member Only"
+        roomConfiguration.addField(variableName: "muc#roomconfig_allowinvites", value: "1") //Allowing occupants to invite others
 
         mucModule.setRoomConfiguration(roomJid: room.jid, configuration: roomConfiguration, onSuccess: {}, onError: { (error) in
             print(error)
@@ -250,9 +257,7 @@ public class XMPPClientService: EventHandler {
         var roomAffiliations = [MucModule.RoomAffiliation]()
 
         for invitee in inviteeJIDs {
-            let inviteeNickname = invitee.components(separatedBy: "@")[0]
-            let roomAffiliation = MucModule.RoomAffiliation(jid: JID(invitee), affiliation: .member, nickname: inviteeNickname, role: .participant)
-
+            let roomAffiliation = MucModule.RoomAffiliation(jid: JID(invitee), affiliation: .member)
             roomAffiliations.append(roomAffiliation)
         }
 
@@ -262,6 +267,8 @@ public class XMPPClientService: EventHandler {
     }
 
     private func acceptRoomInvitation(roomJid: BareJID) {
+        //We are accepting an invitation by joining the room
+
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
         let roomName = roomJid.stringValue.components(separatedBy: "@")[0]
@@ -279,7 +286,7 @@ public class XMPPClientService: EventHandler {
         _ = mucModule.join(roomName: roomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil)
     }
 
-    func sendMessageToLastJoinedRoom(roomId: String, message: String) {
+    func sendMessageToRoom(roomId: String, message: String) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
         let mucSurver = "conference.ssfapp.innovatorslab.net"
@@ -296,11 +303,13 @@ public class XMPPClientService: EventHandler {
             let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
 
             if room.presences[myRoomNickname]?.affiliation == MucAffiliation.owner {
+                //Owners/Admins can add new users via adding Affiliation directly. They can also add by sending invitation.
                 let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: .member, nickname: nil, role: .participant)
                 mucModule.setRoomAffiliations(to: room, changedAffiliations: [roomAffiliation]) { (error) in
                     print(error)
                 }
             } else {
+                //Members can add new users by only sending invitations. They don't have permission to add affiliation directly
                 mucModule.invite(to: room, invitee: JID(userJID), reason: nil)
             }
         }
@@ -335,6 +344,7 @@ public class XMPPClientService: EventHandler {
     private func mucRoomJoined(_ event: MucModule.YouJoinedEvent) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
+        //Fetching all affiliated members of the room after joining
         mucModule.getRoomAffiliations(from: event.room, with: .member) { (affiliations, error) in
             guard error == nil else {
                 return
@@ -343,7 +353,6 @@ public class XMPPClientService: EventHandler {
     }
 
     func mucMessageReceived(_ receivedMessage: MucModule.MessageReceivedEvent) {
-        print("rec mes ->" + (receivedMessage.message.body ?? ""))
         NotificationCenter.default.post(name: NSNotification.Name("newGroupMessageReceived"), object: nil, userInfo: ["receivedMessage": receivedMessage])
     }
 

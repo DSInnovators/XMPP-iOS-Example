@@ -27,7 +27,7 @@ class GroupChatViewController: UIViewController {
         super.viewDidLoad()
 
         self.inviteeJIDTextField.text = "38096@ssfapp.innovatorslab.net,38100@ssfapp.innovatorslab.net"
-        self.roomIdTextField.text = "0c6e6168-194e-482d-ac5a-8d1b9824d5c6"
+        self.roomIdTextField.text = "14c06ede-0b20-41a8-a747-9df36077cc33"
 
         self.newMessageReceivedLabel.alpha = 0
 
@@ -58,6 +58,6 @@ class GroupChatViewController: UIViewController {
     }
 
     @IBAction func sendMessagePressed(_ sender: Any) {
-        XMPPClientService.shared.sendMessageToLastJoinedRoom(roomId: self.roomIdTextField.text!, message: self.messageTextField.text!)
+        XMPPClientService.shared.sendMessageToRoom(roomId: self.roomIdTextField.text!, message: self.messageTextField.text!)
     }
 }
