@@ -216,7 +216,7 @@ public class XMPPClientService: EventHandler {
     func createNewChatRoom(roomName: String, inviteeJIDs: [String]) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
-        let newRoomId = UIDGenerator.nextUid
+        let newRoomId = "group-" + UIDGenerator.nextUid
         let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
 
         _ = mucModule.join(roomName: newRoomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
