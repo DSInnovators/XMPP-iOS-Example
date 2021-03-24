@@ -12,7 +12,7 @@ import TigaseSwift
 public class XMPPClientService: EventHandler {
     public static var shared = XMPPClientService()
 
-    private let mucServer = ""
+    private let mucServer = "SPECIFY MUC SERVER HERE"
 
     private var archivedMessages: [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]!
 
