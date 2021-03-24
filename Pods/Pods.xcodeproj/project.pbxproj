@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0208224499F1B1C339A8150ECE1F899E /* Pods-TigaseTest-TigaseTestUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B12A4675E442D851CC7EE3C3DCB135C /* Pods-TigaseTest-TigaseTestUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0CC829A7244F498C6BA0AAA1B9DE7B6B /* Pods-TigaseTestTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 510D1768CC5AE2FCEE77EB9C8858BC67 /* Pods-TigaseTestTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EE843A6E8BED9A61A16C81950DA735D /* Pods-TigaseTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAF9556870E35417152B2ECAE20D08F /* Pods-TigaseTest-dummy.m */; };
-		537B05D410847A3FB1A1B79EC51ED41C /* Pods-TigaseTestTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE593F9756D56A2CACADF80A421C11 /* Pods-TigaseTestTests-dummy.m */; };
+		348B9C10BDF6102995F095E276D9D9C8 /* Pods-TigaseTestTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 510D1768CC5AE2FCEE77EB9C8858BC67 /* Pods-TigaseTestTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DC19D1914C0348F8853C9711C81D1E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		69D98496E8DD5EE0D178EEFA92BBF36A /* Pods-TigaseTest-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F414019481313D6F341EBAB29EB12B2E /* Pods-TigaseTest-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E1605D78F28BFC728EB6CB7C51146FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		7F9327317AC232FFC62259556E5FA98E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		905F64D63EB50A5E8870C0EB2AB39CB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		95C32EC27E818F691B985750901119EB /* Pods-TigaseTest-TigaseTestUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A61294576E0295B36822AC17812160 /* Pods-TigaseTest-TigaseTestUITests-dummy.m */; };
-		B27AAC22C287DA53E33E88FD45DBDE6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		C7642B1B157BD6F17D7F44237D255756 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		ED1898DACF0B031AF40B5F4F3ED43302 /* Pods-TigaseTestTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EE593F9756D56A2CACADF80A421C11 /* Pods-TigaseTestTests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		21F0FDE8EAA8883F50A2527AE3F78AC6 /* PBXContainerItemProxy */ = {
+		EA45E25EC56D581A17B8B47F14C13003 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -33,11 +33,11 @@
 		111383934345CB8CBA3487E4450CC4F8 /* Pods-TigaseTest-TigaseTestUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TigaseTest-TigaseTestUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		1B12A4675E442D851CC7EE3C3DCB135C /* Pods-TigaseTest-TigaseTestUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TigaseTest-TigaseTestUITests-umbrella.h"; sourceTree = "<group>"; };
 		2513F6B13D7D345A1F0C736CF25E8C4F /* Pods-TigaseTest-TigaseTestUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TigaseTest-TigaseTestUITests-Info.plist"; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3AAF9556870E35417152B2ECAE20D08F /* Pods-TigaseTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TigaseTest-dummy.m"; sourceTree = "<group>"; };
 		3D51E4E2A4B8C90062C2CDB520D10E0A /* Pods-TigaseTestTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TigaseTestTests-Info.plist"; sourceTree = "<group>"; };
 		510D1768CC5AE2FCEE77EB9C8858BC67 /* Pods-TigaseTestTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TigaseTestTests-umbrella.h"; sourceTree = "<group>"; };
 		69EE593F9756D56A2CACADF80A421C11 /* Pods-TigaseTestTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TigaseTestTests-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		737280816E71A7C9C6661DE79121A26C /* Pods-TigaseTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TigaseTest.release.xcconfig"; sourceTree = "<group>"; };
 		83AD13CE0D24B351E7759E0B7EB1623A /* Pods-TigaseTest-TigaseTestUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-TigaseTest-TigaseTestUITests.modulemap"; sourceTree = "<group>"; };
 		977E8E37BAC67DF78986BA3F55D30217 /* Pods-TigaseTest-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TigaseTest-Info.plist"; sourceTree = "<group>"; };
@@ -65,15 +65,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F9327317AC232FFC62259556E5FA98E /* Foundation.framework in Frameworks */,
+				C7642B1B157BD6F17D7F44237D255756 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B3E25BE2E1C338194381BA004C5A7647 /* Frameworks */ = {
+		54F38828A6212F46EC3A6BE89BE530CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B27AAC22C287DA53E33E88FD45DBDE6D /* Foundation.framework in Frameworks */,
+				5DC19D1914C0348F8853C9711C81D1E7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E1605D78F28BFC728EB6CB7C51146FC /* Foundation.framework in Frameworks */,
+				905F64D63EB50A5E8870C0EB2AB39CB3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +130,14 @@
 			path = "Target Support Files/Pods-TigaseTest-TigaseTestUITests";
 			sourceTree = "<group>";
 		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		A8CC7BD1D29B1E475F578A7136FAA1B1 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,14 +164,6 @@
 			path = "Target Support Files/Pods-TigaseTest";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +177,7 @@
 		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,14 +185,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		32325D88883448458CF4C2169A24F110 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CC829A7244F498C6BA0AAA1B9DE7B6B /* Pods-TigaseTestTests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7BA66A80FC473F89566D1E710E20B1F5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,22 +201,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B147C7133767F36D3479FDC48894C314 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				348B9C10BDF6102995F095E276D9D9C8 /* Pods-TigaseTestTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		94C9F64CA13C20E6D7845597CE166AF5 /* Pods-TigaseTestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 998DFE4E30C3CEDC747377125E875A28 /* Build configuration list for PBXNativeTarget "Pods-TigaseTestTests" */;
+			buildConfigurationList = 4DEBF141B3F63E5758961B3E9416C96E /* Build configuration list for PBXNativeTarget "Pods-TigaseTestTests" */;
 			buildPhases = (
-				32325D88883448458CF4C2169A24F110 /* Headers */,
-				5BE63C5FAF253AEE6E69291BDF463096 /* Sources */,
-				B3E25BE2E1C338194381BA004C5A7647 /* Frameworks */,
-				34868FC3422311FCBC5C3C321CC58D27 /* Resources */,
+				B147C7133767F36D3479FDC48894C314 /* Headers */,
+				1E360C9440046AF67E89A2387B6F2FEE /* Sources */,
+				54F38828A6212F46EC3A6BE89BE530CA /* Frameworks */,
+				A1F701A73309E8DAA50E6C37807B4C83 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F54C1054CB1DA4C5F33752CFCD22E779 /* PBXTargetDependency */,
+				813A2426BE37441DBD898D12683A1961 /* PBXTargetDependency */,
 			);
 			name = "Pods-TigaseTestTests";
 			productName = "Pods-TigaseTestTests";
@@ -297,14 +297,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		34868FC3422311FCBC5C3C321CC58D27 /* Resources */ = {
+		3C38253516968C7AF9FD51FD159580A0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C38253516968C7AF9FD51FD159580A0 /* Resources */ = {
+		A1F701A73309E8DAA50E6C37807B4C83 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,11 +329,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BE63C5FAF253AEE6E69291BDF463096 /* Sources */ = {
+		1E360C9440046AF67E89A2387B6F2FEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				537B05D410847A3FB1A1B79EC51ED41C /* Pods-TigaseTestTests-dummy.m in Sources */,
+				ED1898DACF0B031AF40B5F4F3ED43302 /* Pods-TigaseTestTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,57 +348,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		F54C1054CB1DA4C5F33752CFCD22E779 /* PBXTargetDependency */ = {
+		813A2426BE37441DBD898D12683A1961 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-TigaseTest";
 			target = BD2AE7712411539F406027E42A7385BF /* Pods-TigaseTest */;
-			targetProxy = 21F0FDE8EAA8883F50A2527AE3F78AC6 /* PBXContainerItemProxy */;
+			targetProxy = EA45E25EC56D581A17B8B47F14C13003 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07858E020EB63793CF87DD39E9F6D3A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBE24A037D820F080ADAB65BC35D45BE /* Pods-TigaseTestTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		131356BE54884448CA49C07BEDF4BB2A /* Debug */ = {
+		2B9E26EAE2CD392AD762421F663075A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -421,6 +384,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -459,13 +423,12 @@
 			};
 			name = Debug;
 		};
-		19FC8EF931B640131C6979EDE766CAB5 /* Release */ = {
+		3B981D92954C1071FCC83C87F562FE92 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 737280816E71A7C9C6661DE79121A26C /* Pods-TigaseTest.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -498,13 +461,12 @@
 			};
 			name = Release;
 		};
-		1A9867D7BD810BBD727E6A2DD7FE833F /* Debug */ = {
+		50A0DDF2CAB92B124967B4CFF5770E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2DCC1BEDF96B68340C39EC2CA74199D /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */;
+			baseConfigurationReference = D68E221630A76BA3792C45700E395119 /* Pods-TigaseTest.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -513,7 +475,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -522,7 +484,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -536,88 +498,11 @@
 			};
 			name = Debug;
 		};
-		2F4F24F9286010A9010B41B410B2729A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E333779F3F7F3B9C7DA39E606BD3D6D7 /* Pods-TigaseTestTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		36AEA8E1EF0030C2531CF0B6A2EC7B34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9EDB6B3D4A5072A1B280DE42DA6A4465 /* Pods-TigaseTest-TigaseTestUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F090CD07A80273D5A73C8EA19224ADDB /* Release */ = {
+		63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -640,6 +525,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -674,13 +560,12 @@
 			};
 			name = Release;
 		};
-		FC5E12266AD681E44B13837DF9D9E94C /* Debug */ = {
+		B0BDBDA00E6BDE0BB042B004C8D16EB2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D68E221630A76BA3792C45700E395119 /* Pods-TigaseTest.debug.xcconfig */;
+			baseConfigurationReference = D2DCC1BEDF96B68340C39EC2CA74199D /* Pods-TigaseTest-TigaseTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -689,7 +574,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -698,7 +583,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest/Pods-TigaseTest.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -712,23 +597,136 @@
 			};
 			name = Debug;
 		};
+		C85CD4F91127085785710FCFE2975524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBE24A037D820F080ADAB65BC35D45BE /* Pods-TigaseTestTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F81C3BFCCBF0E063E1E6241011093593 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EDB6B3D4A5072A1B280DE42DA6A4465 /* Pods-TigaseTest-TigaseTestUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTest-TigaseTestUITests/Pods-TigaseTest-TigaseTestUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F8481945426B6E9F63AECDC12BC60C1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E333779F3F7F3B9C7DA39E606BD3D6D7 /* Pods-TigaseTestTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TigaseTestTests/Pods-TigaseTestTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				131356BE54884448CA49C07BEDF4BB2A /* Debug */,
-				F090CD07A80273D5A73C8EA19224ADDB /* Release */,
+				2B9E26EAE2CD392AD762421F663075A1 /* Debug */,
+				63FAF33E1C55B71A5F5A8B3CC8749F99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		998DFE4E30C3CEDC747377125E875A28 /* Build configuration list for PBXNativeTarget "Pods-TigaseTestTests" */ = {
+		4DEBF141B3F63E5758961B3E9416C96E /* Build configuration list for PBXNativeTarget "Pods-TigaseTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07858E020EB63793CF87DD39E9F6D3A2 /* Debug */,
-				2F4F24F9286010A9010B41B410B2729A /* Release */,
+				C85CD4F91127085785710FCFE2975524 /* Debug */,
+				F8481945426B6E9F63AECDC12BC60C1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -736,8 +734,8 @@
 		B1A18273C7790AD9E4F6DA4787C115EB /* Build configuration list for PBXNativeTarget "Pods-TigaseTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC5E12266AD681E44B13837DF9D9E94C /* Debug */,
-				19FC8EF931B640131C6979EDE766CAB5 /* Release */,
+				50A0DDF2CAB92B124967B4CFF5770E53 /* Debug */,
+				3B981D92954C1071FCC83C87F562FE92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -745,8 +743,8 @@
 		BCD8B676D41B6C0761305A416E6C613F /* Build configuration list for PBXNativeTarget "Pods-TigaseTest-TigaseTestUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1A9867D7BD810BBD727E6A2DD7FE833F /* Debug */,
-				36AEA8E1EF0030C2531CF0B6A2EC7B34 /* Release */,
+				B0BDBDA00E6BDE0BB042B004C8D16EB2 /* Debug */,
+				F81C3BFCCBF0E063E1E6241011093593 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
