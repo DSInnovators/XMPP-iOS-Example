@@ -40,7 +40,7 @@ open class Zlib {
         case bestCompression = 9;
         case `default` = -1;
     }
-    
+
     /**
      Codes returned by ZLib
      */
@@ -55,7 +55,7 @@ open class Zlib {
         case bufError = -5;
         case versionError = -6;
     }
-    
+
     /**
      Types of flush:
      - No: flush is not done
@@ -75,29 +75,29 @@ open class Zlib {
         case block = 5;
         case trees = 6;
     }
-    
+
     /**
-     This is base class for `Deflater` and `Inflater` which implements 
+     This is base class for `Deflater` and `Inflater` which implements
      common methods and data structures
-     
+
      Class for internal use.
      */
     open class Base {
-        
+
         /// version of ZLib library
         fileprivate static var version = zlibVersion();
         /// instance of `z_stream` structure
         fileprivate var stream = z_stream();
-        
+
     }
 
     /**
-     Class used to compress data using ZLib. 
-     
+     Class used to compress data using ZLib.
+
      Result may be later decompress by `Inflater`
      */
     open class Deflater: Base {
-        
+
         /**
          Creates instance of `Deflater`
          - paramter level: sets compression level
@@ -106,7 +106,7 @@ open class Zlib {
             super.init();
             _ = deflateInit_(&stream, CInt(level.rawValue), Base.version, CInt(MemoryLayout<z_stream>.size));
         }
-        
+
         deinit {
             _ = deflateEnd(&stream);
         }
@@ -123,12 +123,14 @@ open class Zlib {
             var result = [UInt8]();
             stream.avail_in = CUnsignedInt(length);
             stream.next_in = UnsafeMutablePointer<Bytef>(mutating: bytes);
-            
+
             var out = [UInt8](repeating: 0, count: length + (length / 100) + 13);
             repeat {
                 stream.avail_out = CUnsignedInt(out.count);
-                stream.next_out = &out + 0;
-                
+                out.withUnsafeMutableBytes { ptr in
+                    stream.next_out = ptr.baseAddress!.assumingMemoryBound(to: UInt8.self) + 0;
+                }
+
                 _ = deflate(&stream, CInt(flush.rawValue));
                 let outCount = out.count - Int(stream.avail_out);
                 if outCount > 0 {
@@ -138,7 +140,7 @@ open class Zlib {
             // we should check if stream.avail_in is 0!
             return result;
         }
-        
+
         /**
          Method compresses data passed and returns array with compressed data
          - parameter data: instance of Data to compress
@@ -155,33 +157,35 @@ open class Zlib {
                 var out = [UInt8](repeating: 0, count: count + (count / 100) + 13);
                 repeat {
                     stream.avail_out = CUnsignedInt(out.count);
-                    stream.next_out = &out + 0;
-                    
+                    out.withUnsafeMutableBytes { ptr in
+                        stream.next_out = ptr.baseAddress!.assumingMemoryBound(to: UInt8.self) + 0;
+                    }
+
                     _ = deflate(&stream, CInt(flush.rawValue));
                     let outCount = out.count - Int(stream.avail_out);
                     if outCount > 0 {
                         result.append(&out, count: outCount);
                     }
                 } while stream.avail_out == 0
-                
+
                 return result;
             }
         }
     }
 
     /**
-     Class used to decompress data which was compressed using ZLib. 
-     
+     Class used to decompress data which was compressed using ZLib.
+
      Data could be compressed using `Deflater`
      */
     open class Inflater: Base {
-        
+
         /// Creates instance of `Inflater`
         public override init() {
             super.init();
             _ = inflateInit_(&stream, Base.version, CInt(MemoryLayout<z_stream>.size));
         }
-        
+
         /**
          Method decompresses passed data and returns array with decompressed data
          - parameter bytes: pointer to data to decompress
@@ -194,12 +198,14 @@ open class Zlib {
             var result = [UInt8]();
             stream.avail_in = CUnsignedInt(length);
             stream.next_in = UnsafeMutablePointer<Bytef>(mutating: bytes);
-            
+
             var out = [UInt8](repeating: 0, count: 50);
             repeat {
                 stream.avail_out = CUnsignedInt(out.count);
-                stream.next_out = &out + 0;
-                
+                out.withUnsafeMutableBytes { ptr in
+                    stream.next_out = ptr.baseAddress!.assumingMemoryBound(to: UInt8.self) + 0;
+                }
+
                 _ = inflate(&stream, CInt(flush.rawValue));
                 let outCount = out.count - Int(stream.avail_out);
                 if outCount > 0 {
@@ -209,7 +215,7 @@ open class Zlib {
             // we should check if stream.avail_in is 0!
             return result;
         }
-        
+
         /**
          Method decompresses passed data and returns array with decompressed data
          - parameter data: instance of Data to decompress
@@ -222,12 +228,14 @@ open class Zlib {
                 var result = Data();
                 stream.avail_in = CUnsignedInt(count);
                 stream.next_in = bytes.baseAddress!.assumingMemoryBound(to: Bytef.self);
-            
+
                 var out = [UInt8](repeating: 0, count: 50);
                 repeat {
                     stream.avail_out = CUnsignedInt(out.count);
-                    stream.next_out = &out + 0;
-                
+                    out.withUnsafeMutableBytes { ptr in
+                        stream.next_out = ptr.baseAddress!.assumingMemoryBound(to: UInt8.self) + 0;
+                    }
+
                     _ = inflate(&stream, CInt(flush.rawValue));
                     let outCount = out.count - Int(stream.avail_out);
                     if outCount > 0 {
@@ -239,11 +247,11 @@ open class Zlib {
             }
         }
     }
-    
+
     fileprivate let inflater: Inflater;
     fileprivate let deflater: Deflater;
     fileprivate let flush: Flush;
-    
+
     /**
      Creates instance of ZLib which allows for compression and decompression
      - parameter compressionLevel: level of compression
@@ -254,7 +262,7 @@ open class Zlib {
         self.inflater = Inflater();
         self.flush = flush;
     }
-    
+
     /**
      Method compresses data
      - parameter bytes: pointer to data
@@ -273,7 +281,7 @@ open class Zlib {
     open func compress(data: Data) -> Data {
         return deflater.compress(data: data, flush: flush);
     }
-    
+
     /**
      Method decompresses data
      - parameter bytes: pointer to data
