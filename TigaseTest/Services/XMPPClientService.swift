@@ -180,7 +180,7 @@ public class XMPPClientService: EventHandler {
         let mamModule: MessageArchiveManagementModule = self.client.modulesManager.getModule(MessageArchiveManagementModule.ID)!;
         mamModule.queryItems(componentJid: nil, node: nil, with: nil, start: startDate, end: endDate, queryId: "", rsm: RSM.Query(from: (currentPage - 1) * self.pageSize, max: self.pageSize), onSuccess: { (queryId, isCompleted, result) in
             if isCompleted {
-                completion(self.archivedMessages)
+                completion(self.archivedMessages.reversed())
             } else {
                 self.fetchChatArchives(currentPage: currentPage + 1, completion: completion)
             }
