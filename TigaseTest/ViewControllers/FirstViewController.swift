@@ -17,7 +17,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.jabberIdTextField.text = "116221@ssfapp.innovatorslab.net"
+        self.jabberIdTextField.text = ""
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.didConnect), name: 
             NSNotification.Name("didConnect"), object: nil)

@@ -26,8 +26,8 @@ class GroupChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.inviteeJIDTextField.text = "38096@ssfapp.innovatorslab.net,38100@ssfapp.innovatorslab.net"
-        self.roomIdTextField.text = "14c06ede-0b20-41a8-a747-9df36077cc33"
+        self.inviteeJIDTextField.text = ""
+        self.roomIdTextField.text = ""
 
         self.newMessageReceivedLabel.alpha = 0
 

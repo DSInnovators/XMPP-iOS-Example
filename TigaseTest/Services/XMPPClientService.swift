@@ -12,6 +12,8 @@ import TigaseSwift
 public class XMPPClientService: EventHandler {
     public static var shared = XMPPClientService()
 
+    private let mucServer = ""
+
     private var archivedMessages: [MessageArchiveManagementModule.ArchivedMessageReceivedEvent]!
 
     private var pageSize = 2000
@@ -84,14 +86,9 @@ public class XMPPClientService: EventHandler {
         self.client.connectionConfiguration.setUserPassword(password);
         
         //Might be a better approach to specify source.. need to search more
-        self.client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: "SSFAPP")
+//        self.client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: "SPECIFY RESOURCE HERE")
 
         self.isCredentialsSet = true
-        
-//        No need for these...seems to work fine
-//        client.connectionConfiguration.setDomain("ssfapp.innovatorslab.net")
-//        client.connectionConfiguration.setServerHost("ssfapp.innovatorslab.net")
-//        client.connectionConfiguration.setServerPort(9091)
     }
 
     /// Processing received events
@@ -129,7 +126,7 @@ public class XMPPClientService: EventHandler {
     }
 
     func setCredentials(jabberId: String) {
-        self.setCredentials(userJID: jabberId, password: "12345678ssf");
+        self.setCredentials(userJID: jabberId, password: "SPECIFY SERVER PASSWORD HERE");
     }
 
     func removeCredentials() {
@@ -219,7 +216,7 @@ public class XMPPClientService: EventHandler {
         let newRoomId = "group-" + UIDGenerator.nextUid
         let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
 
-        _ = mucModule.join(roomName: newRoomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
+        _ = mucModule.join(roomName: newRoomId, mucServer: self.mucServer, nickname: myRoomNickname, password: nil, ifCreated: { [weak self] (room) in
 
             /*
              After creating a room, we need to set its configurations. Until room has been configured, the room
@@ -283,23 +280,20 @@ public class XMPPClientService: EventHandler {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
         let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
-        _ = mucModule.join(roomName: roomId, mucServer: "conference.ssfapp.innovatorslab.net", nickname: myRoomNickname, password: nil)
+        _ = mucModule.join(roomName: roomId, mucServer: self.mucServer, nickname: myRoomNickname, password: nil)
     }
 
     func sendMessageToRoom(roomId: String, message: String) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
-        let mucSurver = "conference.ssfapp.innovatorslab.net"
-
-        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + self.mucServer))
         room?.sendMessage(message)
     }
 
     func addUserToExistingRoom(roomId: String, userJID: String) {
         let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID)!
 
-        let mucSurver = "conference.ssfapp.innovatorslab.net"
-        if let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver)) {
+        if let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + self.mucServer)) {
             let myRoomNickname = self.myJID.components(separatedBy: "@")[0]
 
             if room.presences[myRoomNickname]?.affiliation == MucAffiliation.owner {
@@ -320,8 +314,7 @@ public class XMPPClientService: EventHandler {
 
         let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: .none)
 
-        let mucSurver = "conference.ssfapp.innovatorslab.net"
-        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + self.mucServer))
 
         mucModule.setRoomAffiliations(to: room!, changedAffiliations: [roomAffiliation]) { (error) in
             print(error)
@@ -333,8 +326,7 @@ public class XMPPClientService: EventHandler {
 
         let roomAffiliation = MucModule.RoomAffiliation(jid: JID(userJID), affiliation: affiliation)
 
-        let mucSurver = "conference.ssfapp.innovatorslab.net"
-        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + mucSurver))
+        let room = mucModule.roomsManager.getRoom(for: BareJID(roomId + "@" + self.mucServer))
 
         mucModule.setRoomAffiliations(to: room!, changedAffiliations: [roomAffiliation]) { (error) in
             print(error)

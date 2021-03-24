@@ -28,7 +28,7 @@ class MessagingViewController: UIViewController {
         self.newMessageReceivedLabel.alpha = 0
         self.chatStatusLabel.isHidden = true
 
-        self.recipientJIDTextField.text = "38100@ssfapp.innovatorslab.net"
+        self.recipientJIDTextField.text = ""
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.newMessageReceived(_:)), name: NSNotification.Name("newMessageReceived"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.chatStausChanged(_:)), name: NSNotification.Name("chatStausChanged"), object: nil)

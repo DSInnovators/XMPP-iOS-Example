@@ -18,8 +18,8 @@ class GroupChatUserManagementViewController: UIViewController {
 
         self.roomIdTextField.text = "0c6e6168-194e-482d-ac5a-8d1b9824d5c6"
 
-        self.userToAddJIDTextField.text = "@ssfapp.innovatorslab.net"
-        self.userToRemoveJIDTextField.text = "@ssfapp.innovatorslab.net"
+        self.userToAddJIDTextField.text = ""
+        self.userToRemoveJIDTextField.text = ""
     }
 
     @IBAction func addToRoomPressed(_ sender: Any) {
